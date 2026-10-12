@@ -1,0 +1,23 @@
+/*
+ * Brooke & TJ — brand tokens
+ * Source: brand/color-palette.png and brand/typography.png
+ */
+
+:root {
+  /* Identity */
+  --color-ivory: #F8F5EE;   /* guideline lists #FFFFFF, but the swatch is a warm off-white; confirm which is intended */
+  --color-black: #000000;
+
+  /* Accents */
+  --color-environment: #50563E; /* olive green */
+  --color-surprise: #391613;    /* deep oxblood */
+  --color-venue: #B2A691;       /* warm taupe */
+
+  /* Typography
+   * Titles:  Ms Claudy (script) paired with Bellefair (serif caps)
+   * Body:    Adobe Garamond Pro: subheadings in letterspaced caps, body regular, subtext italic
+   */
+  --font-script: "Ms Claudy", cursive;
+  --font-display: "Bellefair", serif;
+  --font-body: "adobe-garamond-pro", "EB Garamond", Garamond, serif;
+}
