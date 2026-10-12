@@ -289,6 +289,34 @@ section{padding-block:clamp(88px,12vw,180px)}
 .postcard-row .aside p{color:#CFC7B8}
 @media (max-width:860px){.postcard{grid-column:1 / -1;margin-inline:4%}.postcard-row .aside{grid-column:1 / -1}}
 
+/* ---------- around puglia: the towns ---------- */
+.towns-lede{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;margin:calc(-1 * clamp(16px,3vw,40px)) 0 clamp(56px,7vw,96px)}
+.towns-lede p{grid-column:4 / span 6;margin:0}
+.ruler{position:relative;height:150px;margin:0 0 clamp(72px,9vw,128px)}
+.ruler::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--ink)}
+.ruler-cap{position:absolute;right:0;top:0;color:var(--stone-ink)}
+.stop{position:absolute;top:0;bottom:0;left:var(--x);width:0}
+.stop::before{content:"";position:absolute;top:50%;left:0;width:7px;height:7px;border-radius:50%;background:var(--ivory);border:1px solid var(--ink);transform:translate(-50%,-50%)}
+.stop.home::before{background:var(--wine);border-color:var(--wine)}
+.stop span{position:absolute;left:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px;white-space:nowrap;text-align:center}
+.stop.up span{bottom:calc(50% + 14px)}
+.stop.down span{top:calc(50% + 14px)}
+.stop.home span{transform:none;align-items:flex-start;text-align:left}
+.stop.end span{transform:translateX(-100%);align-items:flex-end;text-align:right}
+.stop i{font-family:var(--italic);font-size:18px;line-height:1.1;color:var(--ink)}
+.stop b{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone-ink)}
+@media (max-width:900px){.ruler{display:none}}
+.towns{--lift:clamp(0px,9vw,140px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,6vw,96px);row-gap:clamp(64px,8vw,120px);padding-bottom:var(--lift)}
+.town{display:flex;flex-direction:column;gap:14px;min-width:0}
+.town:nth-child(even){margin-top:var(--lift);margin-bottom:calc(-1 * var(--lift))}
+.town .photo{aspect-ratio:5/4}
+.town:nth-child(4n+1) .photo,.town:nth-child(4n) .photo{aspect-ratio:4/5}
+.town-meta{display:flex;justify-content:space-between;gap:16px;padding-top:12px;margin-top:8px;border-top:1px solid var(--ink)}
+.town h3{font-size:clamp(34px,3.8vw,56px);line-height:1}
+.town h3 .it{display:block;font-size:.46em;line-height:1.2;margin-top:.25em;color:var(--olive)}
+.town p{font-size:15px;color:var(--ink-2);max-width:46ch;margin:0}
+@media (max-width:760px){.towns-lede p{grid-column:1 / -1}.towns{grid-template-columns:1fr;padding-bottom:0}.town:nth-child(even){margin:0}.town:nth-child(n) .photo{aspect-ratio:4/3}}
+
 /* ---------- RSVP ---------- */
 .rsvp{background:var(--ivory)}
 .rsvp-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:48px}
@@ -387,6 +415,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <li><a href="#villa">The Villa</a></li>
         <li><a href="#travel">Travel &amp; Stay</a></li>
         <li><a href="#discover">Discover Puglia</a></li>
+        <li><a href="#towns">The Towns</a></li>
         <!-- Phase 2: RSVP link, revealed when SITE.phase = 2 -->
         <li data-phase="2"><a href="#rsvp" class="only-mobile">RSVP</a></li>
       </ul>
@@ -666,7 +695,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <li>
           <button class="atlas-item" aria-expanded="false" data-img="https://images.unsplash.com/photo-1705945025983-7c34a4fac5eb?auto=format&fit=crop&w=1100&q=72" data-alt="A whitewashed town on a cliff above the sea" data-cap="Along the coast">
             <span class="t">Nearby <span class="it">towns</span></span><span class="k">Day trips</span>
-            <span class="d">Monopoli and its old harbour are just down the coast. Inland lie the trulli of Alberobello, a UNESCO World Heritage Site, and Ostuni, the white city on its hill. Further afield, just over the border in Basilicata, is the cave city of Matera.</span>
+            <span class="d">Monopoli and its old harbour are just down the coast, and the trulli country of the Valle d'Itria is half an hour inland. Our pick of the towns, from Bari to Lecce, follows below.</span>
           </button>
           <div class="atlas-thumb"><div class="photo"><img src="https://images.unsplash.com/photo-1705945025983-7c34a4fac5eb?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"></div></div>
         </li>
@@ -697,6 +726,80 @@ html.phase-2 [data-phase="1"]{display:none!important}
   </div>
 </section>
 
+<!-- ===================== AROUND PUGLIA: THE TOWNS ===================== -->
+<section class="towns-sec paper" id="towns" aria-labelledby="towns-h">
+  <div class="wrap">
+    <div class="spread-head">
+      <div class="kicker"><span class="num">V.</span><span class="label stone">Around Puglia</span></div>
+      <h2 class="display" id="towns-h">The towns <span class="it">an easy drive in every direction</span></h2>
+    </div>
+    <div class="towns-lede"><p class="lede">Polignano sits at the centre of it all. With a car, the coast, the trulli country of the Valle d'Itria and the baroque south are all within reach.</p></div>
+
+    <div class="ruler" aria-hidden="true">
+      <span class="label ruler-cap">From Polignano, by car · approximate</span>
+        <div class="stop home up" style="--x:0%"><span><i>Polignano</i><b>you are here</b></span></div>
+        <div class="stop down" style="--x:16.7%"><span><i>Monopoli</i><b>15 min</b></span></div>
+        <div class="stop up" style="--x:38.9%"><span><i>Bari<br>Alberobello</i><b>35 min</b></span></div>
+        <div class="stop down" style="--x:44.4%"><span><i>Locorotondo</i><b>40 min</b></span></div>
+        <div class="stop up" style="--x:50%"><span><i>Cisternino</i><b>45 min</b></span></div>
+        <div class="stop down" style="--x:55.6%"><span><i>Ostuni</i><b>50 min</b></span></div>
+        <div class="stop up" style="--x:83.3%"><span><i>Matera</i><b>1 hr 15</b></span></div>
+        <div class="stop end down" style="--x:100%"><span><i>Lecce</i><b>1 hr 30</b></span></div>
+    </div>
+
+    <div class="towns">
+      <article class="town reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1616086017992-9cb7b4bd1a61?auto=format&fit=crop&w=900&q=72" alt="Fishing boats moored in Monopoli's old harbour" loading="lazy"></figure>
+        <div class="town-meta"><span class="label">N° 01</span><span class="label stone">≈ 15 min · Coast</span></div>
+        <h3>Monopoli <span class="it">the harbour next door</span></h3>
+        <p>Just down the coast: a walled old town wrapped around a working harbour of blue fishing boats, with small coves to the south. An easy evening walk and dinner.</p>
+      </article>
+      <article class="town reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1711994016154-b0c2feddada5?auto=format&fit=crop&w=900&q=72" alt="Stone arches in Bari's old town" loading="lazy"></figure>
+        <div class="town-meta"><span class="label">N° 02</span><span class="label stone">≈ 35 min · City</span></div>
+        <h3>Bari <span class="it">the old city</span></h3>
+        <p>Puglia's capital, and likely where you'll land. In Bari Vecchia, women roll orecchiette by hand on Via dell'Arco Basso, around the corner from the Basilica of San Nicola.</p>
+      </article>
+      <article class="town reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1742665764542-aff4f4bc064e?auto=format&fit=crop&w=900&q=72" alt="Trulli with conical stone roofs in Alberobello" loading="lazy"></figure>
+        <div class="town-meta"><span class="label">N° 03</span><span class="label stone">≈ 35 min · Valle d'Itria</span></div>
+        <h3>Alberobello <span class="it">the trulli</span></h3>
+        <p>Whole neighbourhoods of trulli, the whitewashed stone houses with conical roofs, together a UNESCO World Heritage Site. Go early or late in the day, when it's quieter.</p>
+      </article>
+      <article class="town reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1779907756288-623744793d50?auto=format&fit=crop&w=900&q=72" alt="A whitewashed lane lined with potted plants" loading="lazy"></figure>
+        <div class="town-meta"><span class="label">N° 04</span><span class="label stone">≈ 40 min · Valle d'Itria</span></div>
+        <h3>Locorotondo <span class="it">the round town</span></h3>
+        <p>A white, circular old town on a hill above the Valle d'Itria, counted among the most beautiful villages in Italy, with a crisp local white wine of the same name.</p>
+      </article>
+      <article class="town reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1742415197076-f41a52d2316d?auto=format&fit=crop&w=900&q=72" alt="A sunny white street with pottery outside the doors" loading="lazy"></figure>
+        <div class="town-meta"><span class="label">N° 05</span><span class="label stone">≈ 45 min · Valle d'Itria</span></div>
+        <h3>Cisternino <span class="it">the butcher grills</span></h3>
+        <p>Come hungry. Its butchers double as grills: choose your meat at the counter and they cook it while you wait. Order the bombette, little rolls of pork wrapped around cheese.</p>
+      </article>
+      <article class="town reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1742281325875-7df165d53a46?auto=format&fit=crop&w=900&q=72" alt="Ostuni's white old town on its hill" loading="lazy"></figure>
+        <div class="town-meta"><span class="label">N° 06</span><span class="label stone">≈ 50 min · Coast &amp; hills</span></div>
+        <h3>Ostuni <span class="it">la città bianca</span></h3>
+        <p>The white city, piled on a hilltop above olive groves that run down to the sea. Climb the lanes to the cathedral, then stay on the walls for sunset.</p>
+      </article>
+      <article class="town reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1528214096798-37891d32174c?auto=format&fit=crop&w=900&q=72" alt="Matera's cave dwellings across the ravine" loading="lazy"></figure>
+        <div class="town-meta"><span class="label">N° 07</span><span class="label stone">≈ 1 hr 15 · Basilicata</span></div>
+        <h3>Matera <span class="it">the city of caves</span></h3>
+        <p>Just over the border in Basilicata. The Sassi, ancient homes carved into a limestone ravine, are a UNESCO World Heritage Site and unlike anywhere else in Italy. Give it a full day.</p>
+      </article>
+      <article class="town reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1743183277862-a736eec616f8?auto=format&fit=crop&w=900&q=72" alt="A carved stone archway framed by flowers in Lecce" loading="lazy"></figure>
+        <div class="town-meta"><span class="label">N° 08</span><span class="label stone">≈ 1 hr 30 · Salento</span></div>
+        <h3>Lecce <span class="it">the baroque south</span></h3>
+        <p>The heart of the Salento, built from a soft golden limestone carved into some of Italy's most exuberant baroque façades. Pair it with a swim on the Salento coast.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== RSVP (Phase 2) =====================
      Dormant in Phase 1: a <template> is never rendered, read aloud or submitted.
      Set SITE.phase = 2 in the script at the bottom to render it into the slot below
@@ -706,7 +809,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
 <section class="rsvp paper" id="rsvp" aria-labelledby="rsvp-h">
   <div class="wrap">
     <div class="spread-head">
-      <div class="kicker"><span class="num">V.</span><span class="label stone">Répondez s'il vous plaît</span></div>
+      <div class="kicker"><span class="num">VI.</span><span class="label stone">Répondez s'il vous plaît</span></div>
       <h2 class="display" id="rsvp-h">RSVP <span class="it">kindly reply by date to be announced</span></h2>
     </div>
     <div class="rsvp-grid">
@@ -835,7 +938,7 @@ var SITE = { phase: 1 };
         }
       });
     },{rootMargin:'-45% 0px -50% 0px'});
-    ['home','weekend','villa','travel','discover','rsvp'].forEach(function(id){var s=document.getElementById(id); if(s) spy.observe(s);});
+    ['home','weekend','villa','travel','discover','towns','rsvp'].forEach(function(id){var s=document.getElementById(id); if(s) spy.observe(s);});
 
     // reveals: content is visible at rest; only off-screen items get a small lift that settles in
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
