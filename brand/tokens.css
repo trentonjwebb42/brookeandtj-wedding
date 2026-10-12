@@ -5,8 +5,8 @@
 
 :root {
   /* Identity */
-  --color-ivory: #F8F5EE;   /* guideline lists #FFFFFF, but the swatch is a warm off-white; confirm which is intended */
-  --color-black: #000000;
+  --color-ivory: #F1EDE4;
+  --color-black: #171716;
 
   /* Accents */
   --color-environment: #50563E; /* olive green */

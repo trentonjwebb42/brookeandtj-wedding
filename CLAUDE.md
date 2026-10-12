@@ -15,7 +15,7 @@ Live at https://brookeandtj.wedding. Wedding: Friday, September 10, 2027 at Vill
 - The RSVP form (`#rsvpForm`) is a design prototype that saves nothing. The plan is to wire it to Supabase with guest lookup by household before switching to phase 2.
 
 ## Design
-- Brand guidelines live in `brand/` (palette, typography, `tokens.css`). Accent colors: olive `#50563E`, oxblood `#391613`, taupe `#B2A691`, plus ivory and black.
+- Brand guidelines live in `brand/` (palette, typography, `tokens.css`). Accent colors: olive `#50563E`, oxblood `#391613`, taupe `#B2A691`, plus ivory `#F1EDE4` and black `#171716`.
 - The page currently uses Google Fonts (Bellefair, Cormorant Garamond, Jost). Ms Claudy and Adobe Garamond Pro need web licenses before they can be used on the site.
 - Photos are Unsplash placeholders, to be replaced with the couple's own over time.
 - `drafts/` holds earlier versions for reference only.

@@ -16,8 +16,8 @@ Wedding website for Brooke & TJ: save the date, invitations, and RSVP.
 
 | Role | Name | Hex |
 |---|---|---|
-| Identity | Ivory | `#FFFFFF` per guideline (swatch reads as a warm off-white) |
-| Identity | Black | `#000000` |
+| Identity | Ivory | `#F1EDE4` |
+| Identity | Black | `#171716` |
 | The environment | Olive | `#50563E` |
 | The surprise | Oxblood | `#391613` |
 | The venue | Taupe | `#B2A691` |
