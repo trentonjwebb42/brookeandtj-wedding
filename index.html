@@ -1,0 +1,877 @@
+<title>Brooke &amp; TJ · Puglia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout concept: an Italian travel journal. Cinematic, architectural cover; interior "spreads"
+   on limestone paper with asymmetric 12-col grids, hairline rules and oversized Bodoni numerals.
+   Single deliberate light look (ivory paper), every color set explicitly. */
+:root{
+  --ivory:#F3EFE6;      /* Limestone Ivory: page ground */
+  --paper:#EAE4D7;      /* deeper ivory for alternate spreads */
+  --ink:#171715;        /* Soft Ink Black */
+  --ink-2:#4A4A44;      /* body text on ivory */
+  --stone:#BCAE99;      /* Puglian Stone: rules, placeholders */
+  --stone-ink:#7D705C;  /* stone dark enough for small text */
+  --olive:#596044;      /* Olive Leaf Green */
+  --mist:#BBC0A8;       /* Olive Mist */
+  --wine:#641F2B;       /* Oxblood: restrained accent only */
+  --on-photo:#F6F2EA;
+
+  --display:"Bellefair","Trajan Pro","Didot",Georgia,serif;
+  --italic:"Cormorant Garamond","Adobe Caslon Pro","Garamond",Georgia,serif;
+  --sans:"Jost","Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
+
+  --gutter:clamp(16px,4.5vw,64px);
+  --max:1360px;
+  --nav-h:68px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:1px solid var(--wine);outline-offset:4px}
+::selection{background:var(--wine);color:var(--ivory)}
+
+/* paper texture on interior spreads */
+.paper{position:relative;isolation:isolate}
+.paper::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .40 0 0 0 0 .32 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* ---------- type system ---------- */
+.label{font-family:var(--sans);font-weight:400;font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+.label.stone{color:var(--stone-ink)}
+.display{font-family:var(--display);font-weight:400;line-height:.92;letter-spacing:-.01em;text-wrap:balance}
+.it{font-family:var(--italic);font-style:italic;font-weight:400}
+h2.display{font-size:clamp(52px,9vw,148px);margin:0}
+h3{font-family:var(--display);font-weight:400;font-size:clamp(24px,2.4vw,32px);line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0;max-width:62ch}
+.lede{font-family:var(--italic);font-size:clamp(22px,2.3vw,30px);line-height:1.35;color:var(--ink);max-width:30ch}
+.rule{height:1px;background:var(--ink);opacity:.85;border:0;margin:0}
+.rule.soft{background:var(--stone);opacity:1}
+.tbc{display:inline-flex;align-items:center;gap:.6em;font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--stone-ink);white-space:nowrap}
+.tbc::before{content:"";width:18px;height:1px;background:currentColor}
+
+/* photo treatment: gentle desaturation, warm lift, film grain */
+.photo{position:relative;overflow:hidden;background:var(--stone);margin:0}
+.photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.84) contrast(1.04) sepia(.06);transition:transform 1.6s cubic-bezier(.2,.7,.2,1),filter .8s}
+.photo::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.16;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
+a.photo:hover img,.hover-zoom:hover img{transform:scale(1.035)}
+figcaption,.cap{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone-ink);display:flex;justify-content:space-between;gap:16px;padding-top:10px}
+figcaption i,.cap i{font-family:var(--italic);font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink-2)}
+
+/* ---------- navigation ---------- */
+.nav{position:fixed;inset-inline:0;top:0;z-index:50;padding-top:env(safe-area-inset-top,0px);color:var(--on-photo);transition:background .5s,color .5s,border-color .5s;border-bottom:1px solid transparent}
+.nav.solid{background:color-mix(in srgb,var(--ivory) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--ink);border-bottom-color:color-mix(in srgb,var(--stone) 60%,transparent)}
+.nav .wrap{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.mono-link{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mono-link svg{width:40px;height:40px}
+.mono-link span{font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:400}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:clamp(16px,2.4vw,36px)}
+.nav ul a{font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;font-weight:400;position:relative;padding-block:6px}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.nav ul a:hover::after,.nav ul a[aria-current="true"]::after{transform:scaleX(1)}
+.nav.solid ul a[aria-current="true"]{color:var(--wine)}
+.nav .rsvp-btn{font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;font-weight:400;border:1px solid currentColor;padding:9px 18px;transition:background .3s,color .3s}
+.nav .rsvp-btn:hover{background:var(--wine);border-color:var(--wine);color:var(--ivory)}
+@media (min-width:961px){.nav ul li:has(.only-mobile){display:none}}
+.menu-btn{display:none;background:none;border:0;color:inherit;font:400 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;cursor:pointer;padding:10px 0}
+@media (max-width:960px){
+  .nav ul,.nav .rsvp-btn{display:none}
+  .menu-btn{display:block}
+  .nav.open{background:var(--ivory);color:var(--ink)}
+  .nav.open ul{display:flex;flex-direction:column;position:absolute;top:calc(var(--nav-h) + env(safe-area-inset-top,0px));left:0;right:0;background:var(--ivory);padding:24px var(--gutter) 40px;gap:0;border-bottom:1px solid var(--stone)}
+  .nav.open ul a{display:block;font-family:var(--display);font-size:34px;letter-spacing:0;text-transform:none;padding-block:10px}
+  .nav.open ul a::after{display:none}
+}
+
+/* ---------- hero (the cover) ---------- */
+.hero{position:relative;height:clamp(600px,92vh,980px);color:var(--on-photo);overflow:hidden;background:#2b3a3c}
+.hero .photo{position:absolute;inset:0;background:transparent}
+.hero .photo img{object-position:50% 55%;filter:saturate(.8) contrast(1.06) sepia(.05);animation:settle 2.8s cubic-bezier(.2,.7,.2,1) both}
+.hero .photo::after{opacity:.22}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(23,23,21,.42) 0%,rgba(23,23,21,0) 22%,rgba(23,23,21,0) 48%,rgba(23,23,21,.62) 100%)}
+.cover{position:absolute;inset:0;z-index:2;display:grid;grid-template-rows:1fr auto;padding:calc(var(--nav-h) + 28px) var(--gutter) clamp(24px,4vw,48px);max-width:var(--max);margin-inline:auto}
+.coords{position:absolute;right:var(--gutter);top:50%;writing-mode:vertical-rl;transform:translateY(-50%) rotate(180deg);font-size:10px;letter-spacing:.38em;text-transform:uppercase;opacity:.85}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.cover-top .it{font-size:clamp(22px,2.6vw,34px);line-height:1.1}
+.cover-title{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(60px,12.5vw,200px);line-height:.88;letter-spacing:.01em;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.18em;animation:rise 1.8s .15s cubic-bezier(.2,.7,.2,1) both}
+.cover-title .amp{font-family:var(--italic);font-style:italic;text-transform:none;font-size:.62em;font-weight:400;transform:translateY(-.06em)}
+.cover-foot{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding-top:18px;margin-top:22px;border-top:1px solid rgba(246,242,234,.55)}
+.cover-foot .label:last-child{text-align:right}
+.cover-foot .it{font-size:clamp(20px,2vw,26px);text-align:center}
+@media (max-width:640px){
+  .cover-foot{grid-template-columns:1fr;text-align:left;gap:6px}
+  .cover-foot .it,.cover-foot .label:last-child{text-align:left}
+  .coords{display:none}
+}
+@keyframes settle{from{transform:scale(1.07)}to{transform:scale(1)}}
+@keyframes rise{from{transform:translateY(18px);letter-spacing:.04em}to{transform:none;letter-spacing:.01em}}
+
+/* ---------- shared spread scaffolding ---------- */
+section{padding-block:clamp(88px,12vw,180px)}
+.spread-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:28px;align-items:end;margin-bottom:clamp(48px,7vw,96px)}
+.spread-head .kicker{grid-column:1 / span 3;display:flex;flex-direction:column;gap:10px;align-self:start;padding-top:14px;border-top:1px solid var(--ink)}
+.spread-head .kicker .num{font-family:var(--display);font-size:15px;letter-spacing:.06em}
+.spread-head h2{grid-column:4 / -1}
+.spread-head h2 .it{display:block;font-size:.38em;line-height:1.1;margin-top:.25em;color:var(--olive)}
+@media (max-width:820px){.spread-head .kicker,.spread-head h2{grid-column:1 / -1}}
+
+/* ---------- intro ---------- */
+.intro .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:56px}
+.intro .date-block{grid-column:1 / span 5;display:flex;flex-direction:column;gap:18px}
+.date-num{font-family:var(--display);font-size:clamp(96px,16vw,236px);line-height:.8;letter-spacing:-.03em;margin:0}
+.date-num sup{font-size:.28em;vertical-align:top;position:relative;top:.35em;margin-left:.08em;color:var(--wine);font-style:italic;font-family:var(--italic)}
+.intro .letter{grid-column:7 / span 5;display:flex;flex-direction:column;gap:26px;align-self:end}
+.intro .letter p{color:var(--ink-2)}
+.sign{font-family:var(--italic);font-style:italic;font-size:28px;color:var(--wine)}
+.intro .plates{grid-column:1 / -1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px;margin-top:clamp(24px,5vw,72px)}
+.plate-a{grid-column:1 / span 4;align-self:end}
+.plate-a .photo{aspect-ratio:3/4.4}
+.plate-b{grid-column:6 / -1}
+.plate-b .photo{aspect-ratio:16/10.5}
+.plate-b + .note{grid-column:6 / span 5}
+@media (max-width:820px){
+  .intro .date-block,.intro .letter,.plate-a,.plate-b,.plate-b + .note{grid-column:1 / -1}
+  .plate-a{width:72%}
+}
+
+/* full-bleed interlude */
+.interlude{padding:0;position:relative;color:var(--on-photo);background:#33403d}
+.interlude .photo{height:clamp(420px,72vh,760px);background:transparent}
+.interlude .photo img{object-position:50% 60%}
+.interlude blockquote{position:absolute;left:var(--gutter);bottom:clamp(28px,5vw,64px);margin:0;max-width:min(680px,calc(100% - 2*var(--gutter)));z-index:2}
+.interlude blockquote p{font-family:var(--italic);font-style:italic;font-size:clamp(28px,3.6vw,52px);line-height:1.1;max-width:none;text-shadow:0 1px 24px rgba(0,0,0,.25)}
+.interlude::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(23,23,21,.55),rgba(23,23,21,0) 55%);pointer-events:none}
+
+/* ---------- the wedding (interior: softer, olive + candlelight) ---------- */
+.wedding{background:var(--ivory)}
+.venue{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px;align-items:start}
+.venue .photo-col{grid-column:1 / span 6;position:relative}
+.venue .photo-col .photo{aspect-ratio:4/5}
+.venue .photo-col .inset{position:absolute;right:-12%;bottom:-10%;width:46%;border:10px solid var(--ivory)}
+.venue .photo-col .inset .photo{aspect-ratio:1}
+.venue .text-col{grid-column:8 / -1;display:flex;flex-direction:column;gap:28px;padding-top:clamp(0px,4vw,60px)}
+.venue .text-col p{color:var(--ink-2)}
+.details{margin-top:clamp(96px,12vw,160px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink)}
+.detail{padding:28px 28px 36px 0;display:flex;flex-direction:column;gap:14px;min-width:0}
+.detail + .detail{padding-left:28px;border-left:1px solid var(--stone)}
+.detail .label{color:var(--olive)}
+.detail p{font-size:15px;color:var(--ink-2)}
+@media (max-width:980px){
+  .venue .photo-col,.venue .text-col{grid-column:1 / -1}
+  .venue .photo-col{margin-right:14%}
+  .venue .text-col{padding-top:48px}
+  .details{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .detail:nth-child(3){padding-left:0;border-left:0}
+  .detail:nth-child(n+3){border-top:1px solid var(--stone)}
+}
+@media (max-width:560px){
+  .details{grid-template-columns:1fr}
+  .detail,.detail + .detail{padding-left:0;border-left:0}
+  .detail + .detail{border-top:1px solid var(--stone)}
+}
+.order{margin-top:clamp(72px,9vw,120px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:24px}
+.order .label{grid-column:1 / span 3}
+.order ol{grid-column:4 / -1;list-style:none;margin:0;padding:0}
+.order li{display:grid;grid-template-columns:150px 1fr auto;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--stone)}
+.order li:first-child{border-top:1px solid var(--stone)}
+.order .time{font-family:var(--display);font-size:22px;color:var(--stone-ink)}
+.order .what{font-family:var(--display);font-size:clamp(22px,2.4vw,30px)}
+@media (max-width:820px){.order .label,.order ol{grid-column:1 / -1}.order li{grid-template-columns:1fr auto}.order .time{grid-column:1 / -1;font-size:16px}}
+
+.candle{margin-top:clamp(80px,10vw,140px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
+.candle p{font-family:var(--italic);font-style:italic;font-size:clamp(26px,3vw,40px);line-height:1.2;color:var(--wine);max-width:24ch}
+.candle svg{width:22px;height:60px}
+
+/* ---------- the weekend timeline ---------- */
+.days{display:flex;flex-direction:column}
+.day{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);column-gap:32px;row-gap:20px;padding-block:clamp(40px,5vw,64px);border-top:1px solid var(--ink);align-items:start}
+.day:last-child{border-bottom:1px solid var(--ink)}
+.day .numeral{font-family:var(--display);font-size:clamp(120px,17vw,260px);line-height:.78;letter-spacing:-.04em;margin:0;color:var(--stone)}
+.day.confirmed .numeral{color:var(--ink)}
+.day.confirmed .numeral em{color:var(--wine)}
+.day .numeral em{font-family:var(--italic);font-size:.22em;letter-spacing:0;vertical-align:top;margin-left:.15em;position:relative;top:.3em}
+.day .body{display:flex;flex-direction:column;gap:16px;padding-top:10px}
+.day .body .label{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.status{padding:4px 10px;border:1px solid var(--stone-ink);color:var(--stone-ink);font-size:10px;letter-spacing:.22em}
+.status.ok{border-color:var(--wine);color:var(--wine)}
+.day h3{font-size:clamp(30px,3.4vw,46px)}
+.day h3 .it{color:var(--olive)}
+.day p{color:var(--ink-2)}
+.day .photo{aspect-ratio:4/5}
+@media (max-width:900px){.day{grid-template-columns:1fr 1fr}.day .numeral{grid-column:1 / -1}.day .body{grid-column:1 / -1}.day figure{grid-column:1 / span 1}}
+@media (max-width:560px){.day figure{grid-column:1 / -1}}
+
+/* ---------- travel & stay ---------- */
+.legs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+.leg{padding:32px 32px 40px 0;display:flex;flex-direction:column;gap:14px;min-width:0}
+.leg + .leg{padding-left:32px;border-left:1px solid var(--stone)}
+.leg .code{font-family:var(--display);font-size:clamp(56px,6vw,88px);line-height:.9}
+.leg .code small{font-family:var(--italic);font-style:italic;font-size:.3em;color:var(--olive);margin-left:.3em}
+.leg p{font-size:15px;color:var(--ink-2)}
+.leg .verify{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone-ink)}
+@media (max-width:860px){.legs{grid-template-columns:1fr}.leg,.leg + .leg{padding-left:0;border-left:0}.leg + .leg{border-top:1px solid var(--stone)}}
+
+.stay-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin:clamp(96px,11vw,150px) 0 40px}
+.stay-head h3{font-size:clamp(40px,5vw,72px);line-height:1}
+.stays{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:56px}
+.stay{display:flex;flex-direction:column;gap:16px;min-width:0}
+.stay:nth-child(1){grid-column:1 / span 5}
+.stay:nth-child(1) .photo{aspect-ratio:4/5}
+.stay:nth-child(2){grid-column:7 / span 6;margin-top:clamp(0px,9vw,140px)}
+.stay:nth-child(2) .photo{aspect-ratio:3/2}
+.stay:nth-child(3){grid-column:3 / span 6}
+.stay:nth-child(3) .photo{aspect-ratio:16/9}
+.stay .meta{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
+.stay h4{font-family:var(--display);font-weight:400;font-size:clamp(26px,2.6vw,36px);margin:0;line-height:1.1}
+.stay h4 .ph{color:var(--stone-ink)}
+.stay p{font-size:15px;color:var(--ink-2)}
+.stay .book{align-self:flex-start;font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;padding-bottom:4px;border-bottom:1px solid var(--stone);color:var(--stone-ink);cursor:not-allowed}
+@media (max-width:820px){.stay:nth-child(n){grid-column:1 / -1;margin-top:0}}
+
+.tips{margin-top:clamp(96px,11vw,150px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:24px}
+.tips > .label{grid-column:1 / span 3}
+.tips dl{grid-column:4 / -1;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
+.tips dl > div{padding:22px 0;border-top:1px solid var(--stone);min-width:0}
+.tips dt{font-family:var(--display);font-size:22px;margin-bottom:8px}
+.tips dd{margin:0;font-size:15px;color:var(--ink-2)}
+@media (max-width:820px){.tips > .label,.tips dl{grid-column:1 / -1}.tips dl{grid-template-columns:1fr}}
+
+/* ---------- discover puglia: the atlas ---------- */
+.discover{background:var(--ink);color:var(--ivory)}
+.discover .spread-head .kicker{border-top-color:var(--ivory)}
+.discover .spread-head h2 .it{color:var(--mist)}
+.discover .label.stone{color:var(--stone)}
+.atlas{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,80px);align-items:start}
+.atlas-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(243,239,230,.35)}
+.atlas-list li{border-bottom:1px solid rgba(243,239,230,.35)}
+.atlas-item{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:22px 0;align-items:baseline}
+.atlas-item .t{font-family:var(--display);font-size:clamp(30px,3.8vw,54px);line-height:1;transition:color .35s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.atlas-item .t .it{color:var(--stone)}
+.atlas-item .k{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--stone)}
+.atlas-item .d{grid-column:1 / -1;font-size:15px;color:#CFC7B8;max-width:56ch;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s,opacity .5s}
+.atlas-item[aria-expanded="true"] .t{transform:translateX(14px)}
+.atlas-item[aria-expanded="true"] .d{max-height:220px;opacity:1}
+.atlas-item:hover .t{color:#E7C9CE}
+.atlas-item:focus-visible{outline:1px solid var(--stone);outline-offset:6px}
+.atlas-fig{position:sticky;top:calc(var(--nav-h) + 32px)}
+.atlas-fig .photo{aspect-ratio:4/5;background:#2a2a27}
+.atlas-fig .photo img{transition:opacity .6s,transform 1.6s}
+.atlas-fig figcaption{color:var(--stone)}
+.atlas-fig figcaption i{color:var(--ivory)}
+.atlas-thumb{display:none}
+@media (max-width:860px){
+  .atlas{grid-template-columns:1fr}
+  .atlas-fig{display:none}
+  .atlas-thumb{display:block;grid-column:1 / -1;margin-top:10px}
+  .atlas-thumb .photo{aspect-ratio:3/2}
+  .atlas-item .d{max-height:none;opacity:1}
+  .atlas-item[aria-expanded="true"] .t{transform:none}
+}
+
+/* postcard */
+.postcard-row{margin-top:clamp(96px,11vw,150px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px;align-items:center}
+.postcard{grid-column:2 / span 6;background:#F1EBDD;color:var(--ink);padding:14px 14px 0;transform:rotate(-2.2deg);box-shadow:0 30px 60px -30px rgba(0,0,0,.6);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.postcard:hover{transform:rotate(-.6deg) translateY(-4px)}
+.postcard .photo{aspect-ratio:3/2}
+.postcard .pc-foot{display:flex;justify-content:space-between;align-items:center;padding:14px 4px 16px;gap:12px}
+.postcard .pc-foot .it{font-size:24px;color:var(--wine)}
+.stamp{width:54px;height:62px;border:1px dashed var(--wine);display:grid;place-items:center;color:var(--wine);font-family:var(--display);font-size:11px;line-height:1.2;text-align:center}
+.postcard-row .aside{grid-column:9 / span 4;display:flex;flex-direction:column;gap:18px}
+.postcard-row .aside p{color:#CFC7B8}
+@media (max-width:860px){.postcard{grid-column:1 / -1;margin-inline:4%}.postcard-row .aside{grid-column:1 / -1}}
+
+/* ---------- RSVP ---------- */
+.rsvp{background:var(--ivory)}
+.rsvp-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:48px}
+.rsvp-aside{grid-column:1 / span 4;display:flex;flex-direction:column;gap:24px}
+.rsvp-aside .photo{aspect-ratio:3/4}
+.proto{border:1px solid var(--wine);color:var(--wine);padding:14px 16px;font-size:13px;line-height:1.5}
+.proto strong{font-weight:500;letter-spacing:.18em;text-transform:uppercase;font-size:11px;display:block;margin-bottom:4px}
+form{grid-column:6 / -1;display:flex;flex-direction:column;gap:36px}
+.field{display:flex;flex-direction:column;gap:10px;min-width:0}
+.field label,.field legend{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone-ink);font-weight:400;padding:0}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+input[type="text"],textarea{font:400 clamp(22px,2.2vw,28px)/1.3 var(--display);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);padding:8px 0;border-radius:0;width:100%}
+textarea{font-family:var(--italic);font-style:italic;resize:vertical;min-height:110px}
+input[type="text"]::placeholder,textarea::placeholder{color:var(--stone)}
+input[type="text"]:focus,textarea:focus{outline:0;border-bottom-color:var(--wine)}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.choice{position:relative}
+.choice input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.choice span{display:block;padding:18px 18px;border:1px solid var(--stone);font-family:var(--italic);font-size:22px;transition:border-color .3s,background .3s,color .3s}
+.choice input:checked + span{border-color:var(--ink);background:var(--ink);color:var(--ivory)}
+.choice input:focus-visible + span{outline:1px solid var(--wine);outline-offset:3px}
+.checks{display:flex;flex-direction:column;gap:2px}
+.check{display:flex;gap:14px;align-items:center;padding:10px 0;cursor:pointer;font-size:15px}
+.check input{appearance:none;width:16px;height:16px;border:1px solid var(--ink);margin:0;display:grid;place-items:center;cursor:pointer;flex:none}
+.check input:checked{background:var(--wine);border-color:var(--wine)}
+.check em{font-style:normal;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone-ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.submit-row{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.btn{font:400 11px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;padding:20px 34px;border:1px solid var(--ink);background:var(--ink);color:var(--ivory);cursor:pointer;transition:background .35s,border-color .35s}
+.btn:hover{background:var(--wine);border-color:var(--wine)}
+.form-note{font-family:var(--italic);font-style:italic;font-size:19px;color:var(--wine)}
+@media (max-width:860px){.rsvp-aside,form{grid-column:1 / -1}.rsvp-aside .photo{aspect-ratio:16/10}}
+@media (max-width:520px){.choices,.two{grid-template-columns:1fr}}
+
+/* ---------- footer / colophon ---------- */
+footer{background:var(--ink);color:var(--ivory);padding-block:clamp(80px,10vw,140px) 40px}
+.foot-top{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
+.foot-top svg{width:min(150px,40vw);height:auto}
+.foot-top .it{font-size:clamp(24px,2.6vw,34px)}
+.colophon{margin-top:clamp(72px,9vw,120px);padding-top:28px;border-top:1px solid rgba(243,239,230,.25);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:24px}
+.colophon ul{list-style:none;margin:0;padding:0;columns:3 220px;column-gap:32px;font-size:12px;color:var(--stone)}
+.colophon li{break-inside:avoid;padding:3px 0}
+.colophon a{text-decoration:none;border-bottom:1px solid rgba(188,174,153,.35)}
+.colophon a:hover{color:var(--ivory)}
+.colophon .label{color:var(--stone)}
+@media (max-width:700px){.colophon{grid-template-columns:1fr}}
+
+/* ---------- Phase 1 (save-the-date) additions ---------- */
+.tone-paper{background:var(--paper)}
+.villa .venue .photo-col .inset{border-color:var(--paper)}
+.day .where{color:var(--olive)}
+.edition-note{margin-top:clamp(56px,7vw,96px);display:flex;align-items:center;justify-content:center;gap:20px;text-align:center}
+.edition-note::before,.edition-note::after{content:"";height:1px;width:clamp(32px,8vw,120px);background:var(--stone)}
+.edition-note p{font-family:var(--italic);font-style:italic;font-size:clamp(20px,2vw,26px);color:var(--wine);max-width:none}
+.travel-lede{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;margin-bottom:clamp(48px,6vw,80px)}
+.travel-lede .lede{grid-column:4 / span 7;max-width:34ch}
+@media (max-width:820px){.travel-lede .lede{grid-column:1 / -1}}
+.two-journeys{margin-top:clamp(96px,11vw,150px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid var(--ink)}
+.journey{padding:clamp(28px,4vw,52px);display:flex;flex-direction:column;gap:16px;min-width:0}
+.journey + .journey{border-left:1px solid var(--ink);background:color-mix(in srgb,var(--paper) 70%,var(--ivory))}
+.journey .label{color:var(--olive)}
+.journey h3{font-size:clamp(30px,3.4vw,46px)}
+.journey p{font-size:15px;color:var(--ink-2)}
+.journey .sep{font-family:var(--italic);font-style:italic;font-size:19px;color:var(--wine)}
+@media (max-width:760px){.two-journeys{grid-template-columns:1fr}.journey + .journey{border-left:0;border-top:1px solid var(--ink)}}
+.stay .good{font-size:13px;color:var(--olive);letter-spacing:.02em}
+.stay-head p{font-family:var(--italic);font-style:italic;font-size:19px;color:var(--stone-ink);max-width:36ch}
+
+/* ---------- Phase switch: Phase 2 content is inert until SITE.phase = 2 ---------- */
+html:not(.phase-2) [data-phase="2"]{display:none!important}
+html.phase-2 [data-phase="1"]{display:none!important}
+.detail .tbc,.order .tbc{display:none}
+
+/* gentle reveal from a visible resting state */
+.reveal{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.pending{transform:translateY(22px)}
+</style>
+
+<!-- Temporary B+T monogram. Swap the <symbol> contents for the final custom artwork; every use updates. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bt" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width=".8"/>
+    <circle cx="60" cy="60" r="52.5" fill="none" stroke="currentColor" stroke-width=".4"/>
+    <text x="48" y="83" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="72" fill="currentColor">B</text>
+    <text x="72" y="80" text-anchor="middle" font-family="Bellefair, Didot, Georgia, serif" font-size="50" fill="currentColor">T</text>
+  </symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="mono-link" href="#home" aria-label="Brooke and TJ, back to top">
+      <svg aria-hidden="true"><use href="#bt"/></svg>
+      <span>Brooke &amp; TJ</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#weekend">The Weekend</a></li>
+        <li><a href="#villa">The Villa</a></li>
+        <li><a href="#travel">Travel &amp; Stay</a></li>
+        <li><a href="#discover">Discover Puglia</a></li>
+        <!-- Phase 2: RSVP link, revealed when SITE.phase = 2 -->
+        <li data-phase="2"><a href="#rsvp" class="only-mobile">RSVP</a></li>
+      </ul>
+    </nav>
+    <a class="rsvp-btn" href="#rsvp" data-phase="2">RSVP</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+
+<main>
+<!-- ===================== HOME / COVER ===================== -->
+<section class="hero" id="home" aria-label="Brooke and TJ, 10 September 2027">
+  <figure class="photo">
+    <img src="https://images.unsplash.com/photo-1600160805984-2d44e4a1a903?auto=format&fit=crop&w=2400&q=72" alt="Whitewashed houses of Polignano a Mare built to the edge of limestone cliffs above the Adriatic" fetchpriority="high">
+  </figure>
+  <div class="cover">
+    <div class="cover-top">
+      <span class="label">Il Matrimonio</span>
+      <span class="it">Together in Puglia</span>
+    </div>
+    <div>
+      <h1 class="cover-title">Brooke <span class="amp">&amp;</span> TJ</h1>
+      <div class="cover-foot">
+        <span class="label">September 10, 2027</span>
+        <span class="it">Save the date</span>
+        <span class="label">Polignano a Mare · Italy</span>
+      </div>
+    </div>
+    <span class="coords" aria-hidden="true">40°59′ N · 17°13′ E · Mare Adriatico</span>
+  </div>
+</section>
+
+<section class="intro paper" aria-labelledby="intro-h">
+  <div class="wrap">
+    <div class="date-block reveal">
+      <span class="label stone">Venerdì · Friday</span>
+      <p class="date-num" aria-label="10 September 2027">10<sup>Sett.</sup></p>
+      <span class="label">Two thousand twenty-seven</span>
+    </div>
+    <div class="letter reveal">
+      <span class="label stone">A love letter to Puglia</span>
+      <h2 id="intro-h" class="lede">We fell for this stretch of the Adriatic. Now we'd like to share it with the people we love most.</h2>
+      <p>Polignano a Mare is built on a shelf of pale limestone above the sea, its houses set right at the edge of the cliffs. Inland, the countryside is stone walls and olive trees that have stood for centuries. In September the sea is still warm and the evenings are made for long tables outside.</p>
+      <p>We'll open the weekend on Thursday evening with a welcome party at Villa Torre Bianca, marry there among the olive groves on Friday, and spend Saturday by the sea. In between, we hope you'll swim in the coves, linger over lunch and get happily lost in the old town.</p>
+      <p>This first edition of our site has everything you need to start planning the trip.</p>
+      <span class="sign">Brooke &amp; TJ</span>
+    </div>
+    <div class="plates">
+      <figure class="plate-a reveal">
+        <div class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1632153630848-e30d59038036?auto=format&fit=crop&w=1000&q=72" alt="A narrow stone lane in the old town" loading="lazy"></div>
+        <figcaption><span>Plate I</span><i>Il centro storico</i></figcaption>
+      </figure>
+      <figure class="plate-b reveal">
+        <div class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1729641576417-1a613d4d5d40?auto=format&fit=crop&w=1800&q=72" alt="The narrow cove beneath the town, turquoise water between limestone walls" loading="lazy"></div>
+        <figcaption><span>Plate II</span><i>The cove beneath the town</i></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="interlude" aria-label="Interlude">
+  <figure class="photo"><img src="https://images.unsplash.com/photo-1588796503044-0a7c50edbd12?auto=format&fit=crop&w=2400&q=72" alt="A small white boat on blue water below the cliffs" loading="lazy"></figure>
+  <blockquote><p>Salt air, stone still warm from the afternoon, and the people we love most at one long table.</p></blockquote>
+</section>
+
+<!-- ===================== THE WEEKEND ===================== -->
+<section class="weekend-sec paper" id="weekend" aria-labelledby="weekend-h">
+  <div class="wrap">
+    <div class="spread-head">
+      <div class="kicker"><span class="num">I.</span><span class="label stone">The Weekend</span></div>
+      <h2 class="display" id="weekend-h">Three days in Puglia <span class="it">two evenings at Villa Torre Bianca</span></h2>
+    </div>
+
+    <div class="days">
+      <article class="day confirmed reveal">
+        <p class="numeral">09<em>Thu</em></p>
+        <div class="body">
+          <span class="label">Thursday, September 9 · <span class="where">Villa Torre Bianca</span></span>
+          <h3>Welcome <span class="it">celebration</span></h3>
+          <p>An evening welcome party at Villa Torre Bianca, bringing everyone together to begin the wedding festivities in Puglia.</p>
+        </div>
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1631737049009-a7a99bcf2a4d?auto=format&fit=crop&w=900&q=72" alt="Evening sun low behind an olive tree in a field" loading="lazy"></figure>
+      </article>
+      <article class="day confirmed reveal">
+        <p class="numeral">10<em>Fri</em></p>
+        <div class="body">
+          <span class="label">Friday, September 10 · <span class="where">Villa Torre Bianca</span></span>
+          <h3>The <span class="it">wedding</span></h3>
+          <p>Our ceremony and reception at Villa Torre Bianca, surrounded by olive groves.</p>
+        </div>
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1632153630866-f45b76cc58e4?auto=format&fit=crop&w=900&q=72" alt="An old olive tree standing alone in a Puglian field" loading="lazy"></figure>
+      </article>
+      <article class="day reveal">
+        <p class="numeral">11<em>Sat</em></p>
+        <div class="body">
+          <span class="label">Saturday, September 11 · <span class="where">The Adriatic coast</span></span>
+          <h3>Farewell <span class="it">day</span></h3>
+          <p>An optional final day together to enjoy the Adriatic coast, perhaps out on the water. Details to follow.</p>
+        </div>
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1588796503044-0a7c50edbd12?auto=format&fit=crop&w=900&q=72" alt="A small white boat on blue water below the cliffs" loading="lazy"></figure>
+      </article>
+    </div>
+
+    <div class="edition-note" data-phase="1"><p>Further details and a formal invitation to follow.</p></div>
+  </div>
+</section>
+
+<!-- ===================== THE VILLA ===================== -->
+<section class="villa tone-paper paper" id="villa" aria-labelledby="villa-h">
+  <div class="wrap">
+    <div class="spread-head">
+      <div class="kicker"><span class="num">II.</span><span class="label stone">The Villa</span></div>
+      <h2 class="display" id="villa-h">Villa Torre Bianca <span class="it">among the olive groves, near the sea</span></h2>
+    </div>
+
+    <div class="venue">
+      <div class="photo-col reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1658966931690-00580ff55429?auto=format&fit=crop&w=1400&q=72" alt="A tree framed by a pale stone archway" loading="lazy"></figure>
+        <figure class="inset"><div class="photo"><img src="https://images.unsplash.com/photo-1639317041742-c4b6909a1399?auto=format&fit=crop&w=700&q=72" alt="Late sun over a dry stone wall in the Puglian countryside" loading="lazy"></div></figure>
+      </div>
+      <div class="text-col reveal">
+        <p class="lede">Both of our main celebrations take place at Villa Torre Bianca, a historic villa set among olive groves near the Adriatic coast.</p>
+        <p>Thursday's welcome party and Friday's wedding are both held at the villa. It sits apart from Polignano a Mare's old town, so if you're staying in town, plan on travelling out to the villa on both evenings. We'll share more about getting there with the formal invitation.</p>
+      </div>
+    </div>
+
+    <!-- Phase 2: ceremony, reception, dress code, transport and order of the day.
+         Kept inert in a <template>; SITE.phase = 2 renders it here. -->
+    <div data-slot="wedding-details"></div>
+    <template data-phase2="wedding-details">
+      <div class="details">
+        <div class="detail"><span class="label">Ceremony</span><h3>In the garden</h3><p>Exact location on the grounds and start time.</p></div>
+        <div class="detail"><span class="label">Reception</span><h3>Dinner &amp; dancing</h3><p>A long dinner under the olive trees, followed by music into the night.</p></div>
+        <div class="detail"><span class="label">Dress code</span><h3>Black tie, <span class="it">Italian evening</span></h3><p>Formal attire. Ground underfoot may be stone or grass, so plan heels accordingly.</p></div>
+        <div class="detail"><span class="label">Transportation</span><h3>To &amp; from the villa</h3><p>Pick-up points and times.</p></div>
+      </div>
+      <div class="order">
+        <span class="label stone">Order of the day</span>
+        <ol>
+          <li><span class="time">Late afternoon</span><span class="what">Guests arrive · aperitivo</span><span></span></li>
+          <li><span class="time">—</span><span class="what">Ceremony</span><span></span></li>
+          <li><span class="time">—</span><span class="what">Dinner under the trees</span><span></span></li>
+          <li><span class="time">—</span><span class="what">Dancing</span><span></span></li>
+          <li><span class="time">Late</span><span class="what">Return to town</span><span></span></li>
+        </ol>
+      </div>
+    </template>
+
+    <div class="candle">
+      <svg viewBox="0 0 22 60" aria-hidden="true"><path d="M11 2c3 5 5 8 5 11a5 5 0 0 1-10 0c0-3 2-6 5-11z" fill="#641F2B" opacity=".85"/><line x1="11" y1="18" x2="11" y2="22" stroke="#171715" stroke-width="1"/><rect x="7" y="22" width="8" height="36" fill="none" stroke="#171715" stroke-width="1"/></svg>
+      <p>Calla lilies, candlelight, and a very long table.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRAVEL & STAY ===================== -->
+<section class="travel paper" id="travel" aria-labelledby="travel-h">
+  <div class="wrap">
+    <div class="spread-head">
+      <div class="kicker"><span class="num">III.</span><span class="label stone">Travel &amp; Stay</span></div>
+      <h2 class="display" id="travel-h">Getting there <span class="it">and where to rest your head</span></h2>
+    </div>
+    <div class="travel-lede">
+      <p class="lede">September is still high season on this coast. We'd suggest booking flights and rooms as soon as you can.</p>
+    </div>
+
+    <div class="legs">
+      <div class="leg">
+        <span class="label stone">By air</span>
+        <span class="code">BRI<small>Bari</small></span>
+        <p>Fly into Bari Karol Wojtyła Airport, the closest international airport to Polignano a Mare. From the US, expect to connect through a major European hub.</p>
+      </div>
+      <div class="leg">
+        <span class="label stone">By taxi or car</span>
+        <span class="code">45<small>km · about 45 min</small></span>
+        <p>Polignano a Mare is around 45 km down the coast from the airport. Taxis and private transfers wait at arrivals, and hire cars are easy to pick up if you plan to explore.</p>
+      </div>
+      <div class="leg">
+        <span class="label stone">By train</span>
+        <span class="code">FS<small>via Bari Centrale</small></span>
+        <p>Take the airport train into Bari Centrale, then a regional train south to Polignano a Mare station, a short walk from the old town. Allow around an hour and a quarter in total.</p>
+      </div>
+    </div>
+
+    <div class="two-journeys">
+      <div class="journey">
+        <span class="label">Where you'll stay</span>
+        <h3>Polignano <span class="it">a Mare</span></h3>
+        <p>Most guests will base themselves in or around Polignano a Mare, close to the sea, the restaurants and the old town. It's the best place to spend your days between celebrations.</p>
+      </div>
+      <div class="journey">
+        <span class="label">Where we'll celebrate</span>
+        <h3>Villa <span class="it">Torre Bianca</span></h3>
+        <p>Thursday's welcome party and Friday's wedding both take place at the villa, which is not within walking distance of town. Please plan on getting to and from the villa on both evenings.</p>
+        <span class="sep">More on getting to the villa will come with the formal invitation.</span>
+      </div>
+    </div>
+
+    <div class="stay-head">
+      <h3>Where to <span class="it">stay</span></h3>
+      <p>Our own recommendations will be added to this page. In the meantime, here's how to choose.</p>
+    </div>
+    <div class="stays">
+      <article class="stay reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1632153630848-e30d59038036?auto=format&fit=crop&w=1000&q=72" alt="A narrow stone lane in the old town" loading="lazy"></figure>
+        <div class="meta"><span class="label stone">The historic centre</span><span class="label stone">Walkable · Atmospheric</span></div>
+        <h4>The old town</h4>
+        <p>Small hotels, B&amp;Bs and apartments in the <span class="it">centro storico</span>. Step out to the cove, the clifftop terraces and dinner. Rooms tend to be compact, buildings are old, and stairs are common.</p>
+        <span class="good">Best for: couples, first-timers, anyone who wants to walk everywhere</span>
+      </article>
+      <article class="stay reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1584992007191-540ee94cc2b9?auto=format&fit=crop&w=1400&q=72" alt="The town seen across the water" loading="lazy"></figure>
+        <div class="meta"><span class="label stone">Around town &amp; along the coast</span><span class="label stone">More space</span></div>
+        <h4>Beyond the old walls</h4>
+        <p>Hotels and apartment rentals in the newer parts of town and along the coast. Usually more room and easier parking, while staying a short walk or drive from the centre.</p>
+        <span class="good">Best for: families, longer stays, guests with a car</span>
+      </article>
+      <article class="stay reveal">
+        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1569445253039-18cef425f84d?auto=format&fit=crop&w=1600&q=72" alt="Olive trees in the Puglian countryside" loading="lazy"></figure>
+        <div class="meta"><span class="label stone">The countryside</span><span class="label stone">Masserie &amp; villas</span></div>
+        <h4>Masserie &amp; villas</h4>
+        <p>Puglia's restored fortified farmhouses, called <span class="it">masserie</span>, and private villas among the olive groves. Quiet, spacious and lovely for a group sharing a house, but you'll want a car.</p>
+        <span class="good">Best for: groups of friends, a slower pace, guests staying on</span>
+      </article>
+    </div>
+
+    <div class="tips">
+      <span class="label stone">Before you go</span>
+      <dl>
+        <div><dt>When to arrive</dt><dd>Aim to arrive by Wednesday, September 8, so you're rested for Thursday evening's welcome party. Flying from the US usually means an overnight flight and a connection.</dd></div>
+        <div><dt>Staying on</dt><dd>If you can, add a few days before or after. Puglia's towns, beaches and countryside are worth the time.</dd></div>
+        <div><dt>Getting around</dt><dd>A car is useful if you stay in the countryside or plan day trips. Polignano's old town is largely pedestrian, so check parking with your accommodation.</dd></div>
+        <div><dt>Passports</dt><dd>Make sure your passport is valid well beyond your travel dates, and check current entry requirements before you book.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DISCOVER PUGLIA ===================== -->
+<section class="discover" id="discover" aria-labelledby="discover-h">
+  <div class="wrap">
+    <div class="spread-head">
+      <div class="kicker"><span class="num">IV.</span><span class="label stone">Discover Puglia</span></div>
+      <h2 class="display" id="discover-h">A small atlas <span class="it">for the days in between</span></h2>
+    </div>
+
+    <div class="atlas">
+      <ul class="atlas-list" id="atlas">
+        <li>
+          <button class="atlas-item" aria-expanded="true" data-img="https://images.unsplash.com/photo-1693402260804-3abed893fb99?auto=format&fit=crop&w=1100&q=72" data-alt="Swimmers in clear water between limestone walls" data-cap="The cove at Lama Monachile">
+            <span class="t">Swim <span class="it">the cove</span></span><span class="k">Beaches</span>
+            <span class="d">Lama Monachile, also called Cala Porto, is the small pebble cove tucked between the cliffs beneath the old town, crossed above by a 19th-century Bourbon bridge. Go early in the day, before it fills.</span>
+          </button>
+          <div class="atlas-thumb"><div class="photo"><img src="https://images.unsplash.com/photo-1693402260804-3abed893fb99?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"></div></div>
+        </li>
+        <li>
+          <button class="atlas-item" aria-expanded="false" data-img="https://images.unsplash.com/photo-1523365154888-8a758819b722?auto=format&fit=crop&w=1100&q=72" data-alt="A house above the cliffs and sea" data-cap="The cliffs from the water">
+            <span class="t">By boat <span class="it">to the caves</span></span><span class="k">Excursions</span>
+            <span class="d">The cliffs below the town are hollowed with sea caves, including the Grotta Palazzese, best seen from a small boat. Boat trips along this coast usually stop for a swim in clear water.</span>
+          </button>
+          <div class="atlas-thumb"><div class="photo"><img src="https://images.unsplash.com/photo-1523365154888-8a758819b722?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"></div></div>
+        </li>
+        <li>
+          <button class="atlas-item" aria-expanded="false" data-img="https://images.unsplash.com/photo-1630940466901-f89d2b6cd8bf?auto=format&fit=crop&w=1100&q=72" data-alt="Fresh cheese on rustic bread" data-cap="A table in Puglia">
+            <span class="t">Long <span class="it">lunches</span></span><span class="k">Restaurants</span>
+            <span class="d">Puglian cooking is simple and generous: burrata, first made in nearby Andria; orecchiette, the region's ear-shaped pasta; raw seafood fresh off the boats; and taralli with every glass of wine.</span>
+          </button>
+          <div class="atlas-thumb"><div class="photo"><img src="https://images.unsplash.com/photo-1630940466901-f89d2b6cd8bf?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"></div></div>
+        </li>
+        <li>
+          <button class="atlas-item" aria-expanded="false" data-img="https://images.unsplash.com/photo-1600160805984-2d44e4a1a903?auto=format&fit=crop&w=1100&q=72" data-alt="The town on its cliff at golden hour" data-cap="L'ora dell'aperitivo">
+            <span class="t">Aperitivo <span class="it">at the edge</span></span><span class="k">Aperitivo</span>
+            <span class="d">Find a terrace on the cliff toward sunset, order a spritz or a cold glass of Puglian rosato, often made from Negroamaro grapes, and watch the limestone turn gold.</span>
+          </button>
+          <div class="atlas-thumb"><div class="photo"><img src="https://images.unsplash.com/photo-1600160805984-2d44e4a1a903?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"></div></div>
+        </li>
+        <li>
+          <button class="atlas-item" aria-expanded="false" data-img="https://images.unsplash.com/photo-1705945025983-7c34a4fac5eb?auto=format&fit=crop&w=1100&q=72" data-alt="A whitewashed town on a cliff above the sea" data-cap="Along the coast">
+            <span class="t">Nearby <span class="it">towns</span></span><span class="k">Day trips</span>
+            <span class="d">Monopoli and its old harbour are just down the coast. Inland lie the trulli of Alberobello, a UNESCO World Heritage Site, and Ostuni, the white city on its hill. Further afield, just over the border in Basilicata, is the cave city of Matera.</span>
+          </button>
+          <div class="atlas-thumb"><div class="photo"><img src="https://images.unsplash.com/photo-1705945025983-7c34a4fac5eb?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"></div></div>
+        </li>
+        <li>
+          <button class="atlas-item" aria-expanded="false" data-img="https://images.unsplash.com/photo-1632153630848-e30d59038036?auto=format&fit=crop&w=1100&q=72" data-alt="A narrow lane in the old town" data-cap="Il centro storico">
+            <span class="t">Wander <span class="it">the old town</span></span><span class="k">In Polignano</span>
+            <span class="d">Lose an hour in the lanes of the centro storico, look for lines of poetry painted on steps and doorways, and find the seafront statue of Domenico Modugno, the Polignano-born singer of "Volare".</span>
+          </button>
+          <div class="atlas-thumb"><div class="photo"><img src="https://images.unsplash.com/photo-1632153630848-e30d59038036?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"></div></div>
+        </li>
+      </ul>
+      <figure class="atlas-fig" aria-live="polite">
+        <div class="photo"><img id="atlasImg" src="https://images.unsplash.com/photo-1693402260804-3abed893fb99?auto=format&fit=crop&w=1100&q=72" alt="Swimmers in clear water between limestone walls"></div>
+        <figcaption><span id="atlasN">N° 1 / 6</span><i id="atlasCap">The cove at Lama Monachile</i></figcaption>
+      </figure>
+    </div>
+
+    <div class="postcard-row">
+      <div class="postcard reveal">
+        <div class="photo"><img src="https://images.unsplash.com/photo-1729641576417-1a613d4d5d40?auto=format&fit=crop&w=1400&q=72" alt="The cove beneath Polignano a Mare" loading="lazy"></div>
+        <div class="pc-foot"><span class="label">Saluti da Polignano a Mare</span><span class="it">a presto</span><span class="stamp" aria-hidden="true">B·T<br>2027</span></div>
+      </div>
+      <div class="aside">
+        <span class="label stone">A note</span>
+        <p>Think of this as the first pages of our travel journal. Our favourite restaurants, beach clubs and boat trips will join it closer to the wedding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RSVP (Phase 2) =====================
+     Dormant in Phase 1: a <template> is never rendered, read aloud or submitted.
+     Set SITE.phase = 2 in the script at the bottom to render it into the slot below
+     and reveal the RSVP links in the navigation. -->
+<div data-slot="rsvp"></div>
+<template data-phase2="rsvp">
+<section class="rsvp paper" id="rsvp" aria-labelledby="rsvp-h">
+  <div class="wrap">
+    <div class="spread-head">
+      <div class="kicker"><span class="num">V.</span><span class="label stone">Répondez s'il vous plaît</span></div>
+      <h2 class="display" id="rsvp-h">RSVP <span class="it">kindly reply by date to be announced</span></h2>
+    </div>
+    <div class="rsvp-grid">
+      <aside class="rsvp-aside">
+        <figure class="photo"><img src="https://images.unsplash.com/photo-1632153630866-f45b76cc58e4?auto=format&fit=crop&w=900&q=72" alt="An olive tree in a Puglian field" loading="lazy"></figure>
+        <div class="proto" role="note"><strong>Prototype</strong>This form is a design preview. Responses are not saved or sent anywhere until a real RSVP system is connected.</div>
+      </aside>
+      <form id="rsvpForm" novalidate>
+        <div class="two">
+          <div class="field"><label for="g-name">Your name</label><input type="text" id="g-name" placeholder="Full name" autocomplete="name"></div>
+          <div class="field"><label for="g-guest">Guest name</label><input type="text" id="g-guest" placeholder="If invited with a guest"></div>
+        </div>
+        <fieldset class="field">
+          <legend>Will you join us?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="attend" id="att-yes" value="yes" checked><span>Joyfully accepts</span></label>
+            <label class="choice"><input type="radio" name="attend" id="att-no" value="no"><span>Regretfully declines</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="field">
+          <legend>Which days?</legend>
+          <div class="checks">
+            <label class="check"><input type="checkbox" id="d-thu" checked> Thursday · Welcome celebration at Villa Torre Bianca</label>
+            <label class="check"><input type="checkbox" id="d-fri" checked> Friday · The wedding at Villa Torre Bianca</label>
+            <label class="check"><input type="checkbox" id="d-sat"> Saturday · Farewell day</label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="g-diet">Dietary requirements</label><input type="text" id="g-diet" placeholder="Allergies, vegetarian, anything we should know"></div>
+        <div class="field"><label for="g-note">A note for us</label><textarea id="g-note" placeholder="Optional"></textarea></div>
+        <div class="submit-row">
+          <button class="btn" type="submit">Send reply</button>
+          <p class="form-note" id="formNote" hidden>Prototype only. Nothing was sent or saved.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</template>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#bt"/></svg>
+      <span class="it">Brooke &amp; TJ</span>
+      <span class="label" style="color:var(--stone)">10 · IX · MMXXVII · Polignano a Mare</span>
+    </div>
+    <div class="colophon">
+      <span class="label">Photographs</span>
+      <ul>
+        <li><a href="https://unsplash.com/photos/yAn892ej5kQ" target="_blank" rel="noopener">Cover · Vincenzo De Simone</a></li>
+        <li><a href="https://unsplash.com/photos/ag-2vUYJLpM" target="_blank" rel="noopener">Vincenzo De Simone</a></li>
+        <li><a href="https://unsplash.com/photos/1pLswe4J8nk" target="_blank" rel="noopener">Attila Tercz</a></li>
+        <li><a href="https://unsplash.com/photos/5moAmBOtRnE" target="_blank" rel="noopener">Mathilde Ro</a></li>
+        <li><a href="https://unsplash.com/photos/CWwYdFYKIw0" target="_blank" rel="noopener">Mathilde Ro</a></li>
+        <li><a href="https://unsplash.com/photos/mAOTatwrE_o" target="_blank" rel="noopener">Antonio Magrì</a></li>
+        <li><a href="https://unsplash.com/photos/FtEfhGtvCCc" target="_blank" rel="noopener">Giordano Rossoni</a></li>
+        <li><a href="https://unsplash.com/photos/HLzVVc6WpD4" target="_blank" rel="noopener">Emma Harrisova</a></li>
+        <li><a href="https://unsplash.com/photos/bCz1pBFoy3w" target="_blank" rel="noopener">Aron Marinelli</a></li>
+        <li><a href="https://unsplash.com/photos/afJpz_uIS4Q" target="_blank" rel="noopener">Eleonora Altomare</a></li>
+        <li><a href="https://unsplash.com/photos/2OCbq5dl_f4" target="_blank" rel="noopener">Flo P</a></li>
+        <li><a href="https://unsplash.com/photos/i3eQftGYEWM" target="_blank" rel="noopener">Léa</a></li>
+        <li><a href="https://unsplash.com/photos/EVdHoeN6XxY" target="_blank" rel="noopener">Andrea Giardini</a></li>
+        <li><a href="https://unsplash.com/photos/uNvgvo2cs7k" target="_blank" rel="noopener">Sam Ferrara</a></li>
+        <li><a href="https://unsplash.com/photos/UFv76iOCKmA" target="_blank" rel="noopener">Lucia Gherra</a></li>
+        <li><a href="https://unsplash.com/photos/4UiVAoN6szw" target="_blank" rel="noopener">Chikashi Miyamoto</a></li>
+        <li>All via Unsplash, under the Unsplash License</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ------------------------------------------------------------------
+   SITE SETTINGS
+   phase: 1 = Save-the-date edition (public now)
+          2 = Full wedding website: renders every <template data-phase2="…">
+              into its matching <div data-slot="…">, shows [data-phase="2"]
+              items (RSVP links) and hides [data-phase="1"] items.
+   To add Phase 2 content later, place it in a <template data-phase2="name">
+   beside an empty <div data-slot="name"> where it should appear.
+------------------------------------------------------------------- */
+var SITE = { phase: 1 };
+
+(function(){
+  document.documentElement.classList.add('js');
+  if(SITE.phase >= 2){
+    document.documentElement.classList.add('phase-2');
+    document.querySelectorAll('template[data-phase2]').forEach(function(t){
+      var slot=document.querySelector('[data-slot="'+t.dataset.phase2+'"]');
+      if(slot) slot.appendChild(t.content.cloneNode(true));
+    });
+  }
+  var nav=document.getElementById('nav'), hero=document.getElementById('home');
+  var menuBtn=document.getElementById('menuBtn');
+
+  // nav: transparent over the cover photo, ivory once you're into the pages
+  function onScroll(){
+    var past=window.scrollY > hero.offsetHeight - 90;
+    nav.classList.toggle('solid', past || nav.classList.contains('open'));
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  menuBtn.addEventListener('click',function(){
+    var open=!nav.classList.contains('open');
+    nav.classList.toggle('open',open);
+    menuBtn.setAttribute('aria-expanded',open);
+    menuBtn.textContent=open?'Close':'Menu';
+    onScroll();
+  });
+  document.querySelectorAll('#menu a').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(nav.classList.contains('open')){nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='Menu';onScroll();}
+    });
+  });
+
+  // scroll-spy for the current section
+  var links={};
+  document.querySelectorAll('#menu a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  if('IntersectionObserver' in window){
+    var spy=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting && links[e.target.id]){
+          Object.values(links).forEach(function(l){l.removeAttribute('aria-current');});
+          links[e.target.id].setAttribute('aria-current','true');
+        }
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    ['home','weekend','villa','travel','discover','rsvp'].forEach(function(id){var s=document.getElementById(id); if(s) spy.observe(s);});
+
+    // reveals: content is visible at rest; only off-screen items get a small lift that settles in
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce){
+      var rv=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.remove('pending'); rv.unobserve(e.target);} });
+      },{rootMargin:'0px 0px -8% 0px'});
+      document.querySelectorAll('.reveal').forEach(function(el){
+        if(el.getBoundingClientRect().top > window.innerHeight){el.classList.add('pending'); rv.observe(el);}
+      });
+    }
+  }
+
+  // atlas: hover / focus / click swaps the plate
+  var items=[].slice.call(document.querySelectorAll('.atlas-item'));
+  var img=document.getElementById('atlasImg'), cap=document.getElementById('atlasCap'), n=document.getElementById('atlasN');
+  function pick(btn){
+    items.forEach(function(b){b.setAttribute('aria-expanded', b===btn ? 'true':'false');});
+    if(img.getAttribute('src')===btn.dataset.img) return;
+    img.style.opacity=0;
+    setTimeout(function(){img.src=btn.dataset.img; img.alt=btn.dataset.alt; cap.textContent=btn.dataset.cap; n.textContent='N° '+(items.indexOf(btn)+1)+' / '+items.length; img.style.opacity=1;},280);
+  }
+  items.forEach(function(b){
+    b.addEventListener('mouseenter',function(){ if(window.matchMedia('(hover:hover)').matches) pick(b); });
+    b.addEventListener('focus',function(){pick(b);});
+    b.addEventListener('click',function(){pick(b);});
+  });
+
+  // RSVP prototype (Phase 2 only): never pretends to save
+  var rsvpForm=document.getElementById('rsvpForm');
+  if(rsvpForm) rsvpForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('formNote').hidden=false;
+  });
+})();
+</script>

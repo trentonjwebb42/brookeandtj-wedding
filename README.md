@@ -6,6 +6,12 @@ Wedding website for Brooke & TJ: save the date, invitations, and RSVP.
 - **Hosting:** Vercel
 - **Brand:** see `/brand`: color palette, typography, and `tokens.css`
 
+## Structure
+
+- `index.html`: the live site, currently the Phase 1 save-the-date edition. To switch on the full site and RSVP, set `var SITE = { phase: 2 };` near the bottom of the file.
+- `drafts/`: earlier design versions, kept for reference (not deployed)
+- `brand/`: guidelines (not deployed)
+
 ## Brand at a glance
 
 | Role | Name | Hex |
