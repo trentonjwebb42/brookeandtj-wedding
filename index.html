@@ -98,8 +98,9 @@ figcaption i,.cap i{font-family:var(--italic);font-size:15px;letter-spacing:0;te
 /* ---------- hero (the cover) ---------- */
 .hero{position:relative;height:clamp(600px,92vh,980px);color:var(--on-photo);overflow:hidden;background:#2b3a3c}
 .hero .photo{position:absolute;inset:0;background:transparent}
-.hero .photo img{object-position:50% 55%;filter:saturate(.8) contrast(1.06) sepia(.05);animation:settle 2.8s cubic-bezier(.2,.7,.2,1) both}
+.hero .photo img{object-position:50% 52%;filter:saturate(.8) contrast(1.06) sepia(.05);animation:settle 2.8s cubic-bezier(.2,.7,.2,1) both}
 .hero .photo::after{opacity:.22}
+@media (max-aspect-ratio:1/1){.hero .photo img{object-position:50% 50%}}
 .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(180deg,rgba(23,23,21,.42) 0%,rgba(23,23,21,0) 22%,rgba(23,23,21,0) 48%,rgba(23,23,21,.62) 100%)}
 .cover{position:absolute;inset:0;z-index:2;display:grid;grid-template-rows:1fr auto;padding:calc(var(--nav-h) + 28px) var(--gutter) clamp(24px,4vw,48px);max-width:var(--max);margin-inline:auto}
@@ -453,7 +454,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
 <!-- ===================== HOME / COVER ===================== -->
 <section class="hero" id="home" aria-label="Brooke and TJ, 10 September 2027">
   <figure class="photo">
-    <img src="https://images.unsplash.com/photo-1600160805984-2d44e4a1a903?auto=format&fit=crop&w=2400&q=72" alt="Whitewashed houses of Polignano a Mare built to the edge of limestone cliffs above the Adriatic" fetchpriority="high">
+    <img src="/images/hero-polignano.jpg" width="768" height="1024" alt="Polignano a Mare's old town on its limestone cliff above the Adriatic, in the evening light" fetchpriority="high">
   </figure>
   <div class="cover">
     <div class="cover-top">
