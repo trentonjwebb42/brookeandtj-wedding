@@ -326,11 +326,11 @@ section{padding-block:clamp(88px,12vw,180px)}
 .stop i{font-family:var(--italic);font-size:18px;line-height:1.1;color:var(--ink)}
 .stop b{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone-ink)}
 @media (max-width:900px){.ruler{display:none}}
-.towns{--lift:clamp(0px,9vw,140px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,6vw,96px);row-gap:clamp(64px,8vw,120px);padding-bottom:var(--lift)}
+.towns{--lift:clamp(0px,11vw,170px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,5vw,80px);row-gap:clamp(56px,6vw,96px);padding-bottom:var(--lift);max-width:1120px;margin-inline:auto}
 .town{display:flex;flex-direction:column;gap:14px;min-width:0}
 .town:nth-child(even){margin-top:var(--lift);margin-bottom:calc(-1 * var(--lift))}
-.town .photo{aspect-ratio:5/4}
-.town:nth-child(4n+1) .photo,.town:nth-child(4n) .photo{aspect-ratio:4/5}
+/* every card the same portrait shape, so both columns keep an even rhythm; the right column is offset */
+.town .photo{aspect-ratio:4/5}
 .town-meta{display:flex;justify-content:space-between;gap:16px;padding-top:12px;margin-top:8px;border-top:1px solid var(--ink)}
 .town h3{font-size:clamp(34px,3.8vw,56px);line-height:1}
 .town h3 .it{display:block;font-size:.46em;line-height:1.2;margin-top:.25em;color:var(--olive)}
@@ -864,7 +864,6 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <div class="stop home up" style="--x:0%"><span><i>Polignano</i><b>you are here</b></span></div>
         <div class="stop down" style="--x:16.7%"><span><i>Monopoli</i><b>15 min</b></span></div>
         <div class="stop up" style="--x:38.9%"><span><i>Bari<br>Alberobello</i><b>35 min</b></span></div>
-        <div class="stop down" style="--x:44.4%"><span><i>Locorotondo</i><b>40 min</b></span></div>
         <div class="stop down" style="--x:55.6%"><span><i>Ostuni</i><b>50 min</b></span></div>
         <div class="stop up" style="--x:83.3%"><span><i>Matera</i><b>1 hr 15</b></span></div>
         <div class="stop end down" style="--x:100%"><span><i>Lecce</i><b>1 hr 30</b></span></div>
@@ -902,14 +901,8 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <p>Whole neighbourhoods of trulli, the whitewashed stone houses with conical roofs, together a UNESCO World Heritage Site. Go early or late in the day, when it's quieter.</p>
       </article>
       <article class="town reveal">
-        <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1779907756288-623744793d50?auto=format&fit=crop&w=900&q=72" alt="A whitewashed lane lined with potted plants" loading="lazy"></figure>
-        <div class="town-meta"><span class="label">N° 06</span><span class="label stone">≈ 40 min · Valle d'Itria</span></div>
-        <h3>Locorotondo <span class="it">the round town</span></h3>
-        <p>A white, circular old town on a hill above the Valle d'Itria, counted among the most beautiful villages in Italy, with a crisp local white wine of the same name.</p>
-      </article>
-      <article class="town reveal">
         <figure class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1743183277862-a736eec616f8?auto=format&fit=crop&w=900&q=72" alt="A carved stone archway framed by flowers in Lecce" loading="lazy"></figure>
-        <div class="town-meta"><span class="label">N° 07</span><span class="label stone">≈ 1 hr 30 · Salento</span></div>
+        <div class="town-meta"><span class="label">N° 06</span><span class="label stone">≈ 1 hr 30 · Salento</span></div>
         <h3>Lecce <span class="it">the baroque south</span></h3>
         <p>The heart of the Salento, built from a soft golden limestone carved into some of Italy's most exuberant baroque façades. Pair it with a swim on the Salento coast.</p>
       </article>
