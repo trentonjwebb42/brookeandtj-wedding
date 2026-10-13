@@ -989,7 +989,12 @@ var SITE = { phase: 1, replies: false };
 
 (function(){
   document.documentElement.classList.add('js');
-  if(SITE.replies && SITE.phase < 2) document.documentElement.classList.add('replies-on');
+  // Private preview links (nothing changes for guests):
+  //   ?preview=reply  shows the save-the-date reply section
+  //   ?preview=full   shows the full Phase 2 site, including the RSVP section
+  var PREVIEW=(location.search.match(/[?&]preview=(reply|full)\b/)||[])[1];
+  if(PREVIEW==='full') SITE.phase=2;
+  if((SITE.replies || PREVIEW==='reply') && SITE.phase < 2) document.documentElement.classList.add('replies-on');
   if(SITE.phase >= 2){
     document.documentElement.classList.add('phase-2');
     document.querySelectorAll('template[data-phase2]').forEach(function(t){
@@ -1017,7 +1022,7 @@ var SITE = { phase: 1, replies: false };
         document.getElementById('replyMsg').textContent=MSG[lean][0];
         document.getElementById('replySub').textContent=MSG[lean][1];
         rf.hidden=true; rDone.hidden=false;})
-      .catch(function(){rErr.textContent='Something went wrong sending that. Please try again in a moment.';rErr.hidden=false;})
+      .catch(function(){rErr.textContent=(PREVIEW&&!SITE.replies)?'Preview only: replies aren\u2019t connected yet, so nothing was sent.':'Something went wrong sending that. Please try again in a moment.';rErr.hidden=false;})
       .then(function(){rBtn.disabled=false; rBtn.textContent='Let us know';});
     });
     document.getElementById('replyAgain').addEventListener('click',function(){rDone.hidden=true; rf.hidden=false;});
