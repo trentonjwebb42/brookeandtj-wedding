@@ -299,15 +299,15 @@ section{padding-block:clamp(88px,12vw,180px)}
 
 /* postcard */
 .postcard-row{margin-top:clamp(96px,11vw,150px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px;align-items:center}
-.postcard{grid-column:2 / span 6;background:#F1EBDD;color:var(--ink);padding:14px 14px 0;transform:rotate(-2.2deg);box-shadow:0 30px 60px -30px rgba(0,0,0,.6);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.postcard{grid-column:3 / span 4;background:#F1EBDD;color:var(--ink);padding:14px 14px 0;transform:rotate(-2.2deg);box-shadow:0 30px 60px -30px rgba(0,0,0,.6);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .postcard:hover{transform:rotate(-.6deg) translateY(-4px)}
-.postcard .photo{aspect-ratio:3/2}
+.postcard .photo{aspect-ratio:4/5}
 .postcard .pc-foot{display:flex;justify-content:space-between;align-items:center;padding:14px 4px 16px;gap:12px}
 .postcard .pc-foot .it{font-size:24px;color:var(--wine)}
 .stamp{width:54px;height:62px;border:1px dashed var(--wine);display:grid;place-items:center;color:var(--wine);font-family:var(--display);font-size:11px;line-height:1.2;text-align:center}
 .postcard-row .aside{grid-column:9 / span 4;display:flex;flex-direction:column;gap:18px}
 .postcard-row .aside p{color:#CFC7B8}
-@media (max-width:860px){.postcard{grid-column:1 / -1;margin-inline:4%}.postcard-row .aside{grid-column:1 / -1}}
+@media (max-width:860px){.postcard{grid-column:1 / -1;margin-inline:10%}.postcard-row .aside{grid-column:1 / -1}}
 
 /* ---------- around puglia: the towns ---------- */
 .towns-lede{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;margin:calc(-1 * clamp(16px,3vw,40px)) 0 clamp(56px,7vw,96px)}
@@ -839,8 +839,8 @@ html.phase-2 [data-phase="1"]{display:none!important}
 
     <div class="postcard-row">
       <div class="postcard reveal">
-        <div class="photo"><img src="https://images.unsplash.com/photo-1729641576417-1a613d4d5d40?auto=format&fit=crop&w=1400&q=72" alt="The cove beneath Polignano a Mare" loading="lazy"></div>
-        <div class="pc-foot"><span class="label">Saluti da Polignano a Mare</span><span class="it">a presto</span><span class="stamp" aria-hidden="true">B·T<br>2027</span></div>
+        <div class="photo"><img src="/images/postcard-couple.jpg" width="768" height="1024" alt="Brooke and TJ on a terrace above vineyards and olive trees at sunset" loading="lazy"></div>
+        <div class="pc-foot"><span class="label">Saluti dall'Italia</span><span class="it">a presto</span><span class="stamp" aria-hidden="true">B·T<br>2027</span></div>
       </div>
       <div class="aside">
         <span class="label stone">A note</span>
