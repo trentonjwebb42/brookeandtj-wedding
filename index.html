@@ -389,6 +389,26 @@ footer{background:var(--ink);color:var(--ivory);padding-block:clamp(80px,10vw,14
 .stay .good{font-size:13px;color:var(--olive);letter-spacing:.02em}
 .stay-head p{font-family:var(--italic);font-style:italic;font-size:19px;color:var(--stone-ink);max-width:36ch}
 
+/* ---------- the villa: dark spread (echoes Discover Puglia) ---------- */
+.villa-dark{background:var(--ink);color:var(--ivory)}
+.villa-dark .spread-head .kicker{border-top-color:var(--ivory)}
+.villa-dark .spread-head h2 .it{color:var(--mist)}
+.villa-dark .label.stone{color:var(--stone)}
+.villa-dark .lede{color:var(--ivory)}
+.villa-dark .venue .text-col p:not(.lede){color:#CFC7B8}
+.villa-dark .photo{background:#2a2a27}
+.villa-dark .venue .photo-col .inset{border-color:var(--ink)}
+.villa-dark .candle p{color:var(--stone)}
+.villa-dark .candle svg path{fill:var(--stone);opacity:1}
+.villa-dark .candle svg line,.villa-dark .candle svg rect{stroke:var(--ivory)}
+.villa-dark .details{border-top-color:rgba(243,239,230,.35)}
+.villa-dark .detail + .detail{border-left-color:rgba(243,239,230,.35)}
+.villa-dark .detail .label{color:var(--mist)}
+.villa-dark .detail p{color:#CFC7B8}
+.villa-dark .order li{border-color:rgba(243,239,230,.35)}
+.villa-dark .order .time{color:var(--stone)}
+.villa-dark :focus-visible{outline-color:var(--stone)}
+
 /* ---------- Phase switch: Phase 2 content is inert until SITE.phase = 2 ---------- */
 html:not(.phase-2) [data-phase="2"]{display:none!important}
 html.phase-2 [data-phase="1"]{display:none!important}
@@ -528,7 +548,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
 </section>
 
 <!-- ===================== THE VILLA ===================== -->
-<section class="villa tone-paper paper" id="villa" aria-labelledby="villa-h">
+<section class="villa villa-dark" id="villa" aria-labelledby="villa-h">
   <div class="wrap">
     <div class="spread-head">
       <div class="kicker"><span class="num">II.</span><span class="label stone">The Villa</span></div>
