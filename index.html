@@ -305,6 +305,19 @@ section{padding-block:clamp(88px,12vw,180px)}
 .postcard .pc-foot{display:flex;justify-content:space-between;align-items:center;padding:14px 4px 16px;gap:12px}
 .postcard .pc-foot .it{font-size:24px;color:var(--wine)}
 .stamp{width:54px;height:62px;border:1px dashed var(--wine);display:grid;place-items:center;color:var(--wine);font-family:var(--display);font-size:11px;line-height:1.2;text-align:center}
+/* two postcards, the second laid over the first's corner */
+.postcards{grid-column:1 / span 8;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));column-gap:24px;align-items:start}
+.postcards .postcard{grid-row:1}
+.postcards .pc-1{grid-column:2 / span 4;position:relative;z-index:1}
+.postcards .pc-2{grid-column:5 / span 4;margin-top:clamp(80px,14vw,220px);position:relative;z-index:2;transform:rotate(2.6deg)}
+.postcards .pc-2:hover{transform:rotate(.8deg) translateY(-4px)}
+.postcards .pc-2 .photo{aspect-ratio:4/3}
+@media (max-width:860px){
+  .postcards{grid-column:1 / -1;display:block}
+  .postcards .postcard{margin-inline:0}
+  .postcards .pc-1{width:74%}
+  .postcards .pc-2{width:86%;margin:-14% 0 0 auto}
+}
 .postcard-row .aside{grid-column:9 / span 4;display:flex;flex-direction:column;gap:18px}
 .postcard-row .aside p{color:#CFC7B8}
 @media (max-width:860px){.postcard{grid-column:1 / -1;margin-inline:10%}.postcard-row .aside{grid-column:1 / -1}}
@@ -838,9 +851,15 @@ html.phase-2 [data-phase="1"]{display:none!important}
     </div>
 
     <div class="postcard-row">
-      <div class="postcard reveal">
+      <div class="postcards">
+      <div class="postcard pc-1 reveal">
         <div class="photo"><img src="/images/postcard-couple.jpg" width="768" height="1024" alt="Brooke and TJ on a terrace above vineyards and olive trees at sunset" loading="lazy"></div>
         <div class="pc-foot"><span class="label">Saluti dall'Italia</span><span class="it">a presto</span><span class="stamp" aria-hidden="true">B·T<br>2027</span></div>
+      </div>
+      <div class="postcard pc-2 reveal">
+        <div class="photo"><img src="/images/postcard-florence.jpg" width="1024" height="768" alt="Brooke and TJ at sunset above Florence, the cathedral dome behind them" loading="lazy"></div>
+        <div class="pc-foot"><span class="label">Saluti da Firenze</span><span class="it">ci vediamo</span><span class="stamp" aria-hidden="true">B·T<br>2027</span></div>
+      </div>
       </div>
       <div class="aside">
         <span class="label stone">A note</span>
