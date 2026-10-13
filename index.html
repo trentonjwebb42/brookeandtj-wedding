@@ -28,7 +28,7 @@
 
   --gutter:clamp(16px,4.5vw,64px);
   --max:1360px;
-  --nav-h:68px;
+  --nav-h:76px;
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -75,18 +75,19 @@ figcaption i,.cap i{font-family:var(--italic);font-size:15px;letter-spacing:0;te
 .nav.solid{background:color-mix(in srgb,var(--ivory) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--ink);border-bottom-color:color-mix(in srgb,var(--stone) 60%,transparent)}
 .nav .wrap{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:24px}
 .mono-link{display:flex;align-items:center;gap:12px;text-decoration:none}
-.mono-link svg{width:40px;height:40px}
-.mono-link span{font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:400}
+.mono-link svg{width:48px;height:48px}
+.mono-link span{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400}
+@media (max-width:420px){.mono-link span{display:none}}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:clamp(16px,2.4vw,36px)}
-.nav ul a{font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;font-weight:400;position:relative;padding-block:6px}
+.nav ul a{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;font-weight:400;position:relative;padding-block:6px}
 .nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
 .nav ul a:hover::after,.nav ul a[aria-current="true"]::after{transform:scaleX(1)}
 .nav.solid ul a[aria-current="true"]{color:var(--wine)}
-.nav .rsvp-btn{font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;font-weight:400;border:1px solid currentColor;padding:9px 18px;transition:background .3s,color .3s}
+.nav .rsvp-btn{font-size:12px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;font-weight:400;border:1px solid currentColor;padding:9px 18px;transition:background .3s,color .3s}
 .nav .rsvp-btn:hover{background:var(--wine);border-color:var(--wine);color:var(--ivory)}
-@media (min-width:961px){.nav ul li:has(.only-mobile){display:none}}
-.menu-btn{display:none;background:none;border:0;color:inherit;font:400 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;cursor:pointer;padding:10px 0}
-@media (max-width:960px){
+@media (min-width:1181px){.nav ul li:has(.only-mobile){display:none}}
+.menu-btn{display:none;background:none;border:0;color:inherit;font:400 12px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;cursor:pointer;padding:10px 0}
+@media (max-width:1180px){
   .nav ul,.nav .rsvp-btn{display:none}
   .menu-btn{display:block}
   .nav.open{background:var(--ivory);color:var(--ink)}
@@ -414,7 +415,7 @@ footer{background:var(--ink);color:var(--ivory);padding-block:clamp(80px,10vw,14
 /* ---------- save-the-date reply (phase 1; hidden until SITE.replies is on) ---------- */
 html:not(.replies-on) .reply-sec,html:not(.replies-on) .needs-replies{display:none!important}
 /* nav RSVP button stays visible on phones, tucked beside Menu */
-@media (max-width:960px){.nav .wrap .rsvp-btn{display:inline-block;margin-left:auto;padding:8px 14px;font-size:10px;letter-spacing:.22em}}
+@media (max-width:1180px){.nav .wrap .rsvp-btn{display:inline-block;margin-left:auto;padding:9px 15px;font-size:11px;letter-spacing:.22em}}
 .reply-sec{background:var(--paper)}
 .reply-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px}
 .reply-intro{grid-column:1 / span 4;display:flex;flex-direction:column;gap:18px}
