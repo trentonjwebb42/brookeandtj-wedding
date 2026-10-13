@@ -409,6 +409,43 @@ footer{background:var(--ink);color:var(--ivory);padding-block:clamp(80px,10vw,14
 .villa-dark .order .time{color:var(--stone)}
 .villa-dark :focus-visible{outline-color:var(--stone)}
 
+/* ---------- save-the-date reply (phase 1; hidden until SITE.replies is on) ---------- */
+html:not(.replies-on) .reply-sec{display:none!important}
+.reply-sec{background:var(--paper)}
+.reply-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px}
+.reply-intro{grid-column:1 / span 4;display:flex;flex-direction:column;gap:18px}
+.reply-intro h2{font-size:clamp(40px,5vw,68px);line-height:.95}
+.reply-intro h2 .it{display:block;font-size:.5em;line-height:1.15;margin-top:.2em;color:var(--olive)}
+.reply-intro p{color:var(--ink-2);max-width:34ch}
+.reply-form,.reply-done{grid-column:6 / -1}
+.reply-form{display:flex;flex-direction:column;gap:32px}
+.reply-form .two{gap:28px}
+.reply-form input[type="email"]{font:400 clamp(22px,2.2vw,28px)/1.3 var(--display);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);padding:8px 0;border-radius:0;width:100%}
+.reply-form input[type="email"]::placeholder{color:var(--stone)}
+.reply-form input[type="email"]:focus{outline:0;border-bottom-color:var(--wine)}
+.reply-form textarea{min-height:80px}
+.lean{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;border:0;margin:0;padding:0;min-width:0}
+.lean legend{grid-column:1 / -1;margin-bottom:12px;padding:0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone-ink);font-weight:400}
+.lean label{position:relative;cursor:pointer;display:block}
+.lean input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.lean span{display:flex;flex-direction:column;gap:4px;height:100%;padding:16px 16px 18px;border:1px solid var(--stone);transition:border-color .3s,background .3s,color .3s}
+.lean small{font:400 10px/1.2 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--stone-ink)}
+.lean b{font:italic 400 clamp(20px,2vw,24px)/1.15 var(--italic)}
+.lean label:hover span{border-color:var(--ink)}
+.lean input:checked + span{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+.lean input:checked + span small{color:var(--stone)}
+.lean input:focus-visible + span{outline:1px solid var(--wine);outline-offset:3px}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.reply-err{font-family:var(--italic);font-style:italic;font-size:19px;color:var(--wine);margin:0}
+.reply-done{display:flex;flex-direction:column;gap:16px;align-items:flex-start;padding-top:12px;border-top:1px solid var(--ink)}
+.reply-done .big{font-family:var(--italic);font-style:italic;font-size:clamp(30px,3.6vw,46px);line-height:1.15;color:var(--wine);max-width:20ch;margin:0}
+.reply-done p{color:var(--ink-2);margin:0}
+.reply-again{all:unset;cursor:pointer;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone-ink);border-bottom:1px solid var(--stone);padding-bottom:3px}
+.reply-again:hover{color:var(--ink)}
+.reply-again:focus-visible{outline:1px solid var(--wine);outline-offset:3px}
+@media (max-width:900px){.reply-intro,.reply-form,.reply-done{grid-column:1 / -1}}
+@media (max-width:620px){.lean{grid-template-columns:1fr}.reply-form .two{grid-template-columns:1fr}}
+
 /* ---------- Phase switch: Phase 2 content is inert until SITE.phase = 2 ---------- */
 html:not(.phase-2) [data-phase="2"]{display:none!important}
 html.phase-2 [data-phase="1"]{display:none!important}
@@ -546,6 +583,45 @@ html.phase-2 [data-phase="1"]{display:none!important}
     </div>
 
     <div class="edition-note" data-phase="1"><p>Further details and a formal invitation to follow.</p></div>
+  </div>
+</section>
+
+<!-- ===================== SAVE-THE-DATE REPLY (Phase 1) =====================
+     A soft "are you coming?" before the formal RSVP. Replies go to /api/reply,
+     which stores them in Supabase. Hidden until SITE.replies = true. -->
+<section class="reply-sec paper" id="reply" data-phase="1" aria-labelledby="reply-h">
+  <div class="wrap">
+    <div class="reply-grid">
+      <div class="reply-intro">
+        <span class="label stone">Une petite réponse</span>
+        <h2 class="display" id="reply-h">Will you join us <span class="it">in Puglia?</span></h2>
+        <p>Not a formal RSVP, just a heads-up so we can plan. The invitation, with travel and hotel details, will follow in the spring.</p>
+      </div>
+
+      <form class="reply-form" id="replyForm" novalidate>
+        <div class="two">
+          <div class="field"><label for="re-name">Your name</label><input type="text" id="re-name" name="name" placeholder="Full name" autocomplete="name" maxlength="120" required></div>
+          <div class="field"><label for="re-email">Email</label><input type="email" id="re-email" name="email" placeholder="For the invitation" autocomplete="email" maxlength="200"></div>
+        </div>
+        <fieldset class="lean">
+          <legend>How are you leaning?</legend>
+          <label><input type="radio" name="leaning" value="yes" required><span><small>Yes</small><b>Wouldn't miss it</b></span></label>
+          <label><input type="radio" name="leaning" value="maybe"><span><small>Maybe</small><b>Hoping to make it</b></span></label>
+          <label><input type="radio" name="leaning" value="no"><span><small>No</small><b>Sadly, can't</b></span></label>
+        </fieldset>
+        <div class="field"><label for="re-note">Anything we should know? (optional)</label><textarea id="re-note" name="note" placeholder="Staying on after, travelling from London…" maxlength="1000"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="re-web">Leave this empty</label><input type="text" id="re-web" name="website" tabindex="-1" autocomplete="off"></div>
+        <p class="reply-err" id="replyErr" role="alert" hidden></p>
+        <div class="submit-row"><button class="btn" type="submit" id="replyBtn">Let us know</button></div>
+      </form>
+
+      <div class="reply-done" id="replyDone" hidden>
+        <span class="label stone">Received</span>
+        <p class="big" id="replyMsg"></p>
+        <p id="replySub"></p>
+        <button class="reply-again" type="button" id="replyAgain">Change my answer</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -907,16 +983,44 @@ html.phase-2 [data-phase="1"]{display:none!important}
    To add Phase 2 content later, place it in a <template data-phase2="name">
    beside an empty <div data-slot="name"> where it should appear.
 ------------------------------------------------------------------- */
-var SITE = { phase: 1 };
+var SITE = { phase: 1, replies: false };
+/* replies: true shows the save-the-date reply section (phase 1 only).
+   Turn on only once /api/reply is connected to Supabase. */
 
 (function(){
   document.documentElement.classList.add('js');
+  if(SITE.replies && SITE.phase < 2) document.documentElement.classList.add('replies-on');
   if(SITE.phase >= 2){
     document.documentElement.classList.add('phase-2');
     document.querySelectorAll('template[data-phase2]').forEach(function(t){
       var slot=document.querySelector('[data-slot="'+t.dataset.phase2+'"]');
       if(slot) slot.appendChild(t.content.cloneNode(true));
     });
+  }
+  // save-the-date reply: posts to /api/reply (Supabase behind it)
+  var rf=document.getElementById('replyForm');
+  if(rf){
+    var rErr=document.getElementById('replyErr'), rBtn=document.getElementById('replyBtn'), rDone=document.getElementById('replyDone');
+    var MSG={yes:['We can\u2019t wait to celebrate with you.','The formal invitation, with travel and hotel details, will follow in the spring.'],
+             maybe:['We hope it works out.','No pressure. We\u2019ll send the invitation either way, and you can let us know for sure then.'],
+             no:['We\u2019ll miss you, and we\u2019ll raise a glass to you.','Thank you for letting us know early. It really helps with planning.']};
+    rf.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=function(id){return document.getElementById(id).value.trim();};
+      var name=v('re-name'), lean=(rf.querySelector('input[name="leaning"]:checked')||{}).value, email=v('re-email');
+      if(!name||!lean){rErr.textContent='Add your name and how you\u2019re leaning, then send.';rErr.hidden=false;return;}
+      if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){rErr.textContent='That email doesn\u2019t look quite right. Check it, or leave it blank.';rErr.hidden=false;return;}
+      rErr.hidden=true; rBtn.disabled=true; rBtn.textContent='Sending\u2026';
+      fetch('/api/reply',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name:name,email:email,leaning:lean,note:v('re-note'),website:document.getElementById('re-web').value})})
+      .then(function(r){if(!r.ok) throw new Error(r.status);
+        document.getElementById('replyMsg').textContent=MSG[lean][0];
+        document.getElementById('replySub').textContent=MSG[lean][1];
+        rf.hidden=true; rDone.hidden=false;})
+      .catch(function(){rErr.textContent='Something went wrong sending that. Please try again in a moment.';rErr.hidden=false;})
+      .then(function(){rBtn.disabled=false; rBtn.textContent='Let us know';});
+    });
+    document.getElementById('replyAgain').addEventListener('click',function(){rDone.hidden=true; rf.hidden=false;});
   }
   var nav=document.getElementById('nav'), hero=document.getElementById('home');
   var menuBtn=document.getElementById('menuBtn');

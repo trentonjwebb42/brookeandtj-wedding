@@ -1,0 +1,21 @@
+-- Save-the-date replies table. Run once in Supabase: SQL Editor -> New query -> paste -> Run.
+-- Row level security is on with no policies, so only the server (service_role key in
+-- Vercel) can read or write. Nothing on the public website can read the list.
+
+create table if not exists public.save_the_date_replies (
+  id          uuid primary key default gen_random_uuid(),
+  created_at  timestamptz not null default now(),
+  name        text not null check (char_length(name) between 1 and 120),
+  email       text check (char_length(email) <= 200),
+  leaning     text not null check (leaning in ('yes', 'maybe', 'no')),
+  note        text check (char_length(note) <= 1000)
+);
+
+alter table public.save_the_date_replies enable row level security;
+
+-- Latest answer per person (someone may change their mind), handy for counting.
+create or replace view public.save_the_date_latest
+with (security_invoker = true) as
+select distinct on (lower(name)) name, email, leaning, note, created_at
+from public.save_the_date_replies
+order by lower(name), created_at desc;
