@@ -410,7 +410,9 @@ footer{background:var(--ink);color:var(--ivory);padding-block:clamp(80px,10vw,14
 .villa-dark :focus-visible{outline-color:var(--stone)}
 
 /* ---------- save-the-date reply (phase 1; hidden until SITE.replies is on) ---------- */
-html:not(.replies-on) .reply-sec{display:none!important}
+html:not(.replies-on) .reply-sec,html:not(.replies-on) .needs-replies{display:none!important}
+/* nav RSVP button stays visible on phones, tucked beside Menu */
+@media (max-width:960px){.nav .wrap .rsvp-btn{display:inline-block;margin-left:auto;padding:8px 14px;font-size:10px;letter-spacing:.22em}}
 .reply-sec{background:var(--paper)}
 .reply-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px}
 .reply-intro{grid-column:1 / span 4;display:flex;flex-direction:column;gap:18px}
@@ -481,6 +483,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <li data-phase="2"><a href="#rsvp" class="only-mobile">RSVP</a></li>
       </ul>
     </nav>
+    <a class="rsvp-btn needs-replies" href="#reply" data-phase="1">RSVP</a>
     <a class="rsvp-btn" href="#rsvp" data-phase="2">RSVP</a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
