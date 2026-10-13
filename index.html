@@ -155,20 +155,23 @@ section{padding-block:clamp(88px,12vw,180px)}
 .plate-b{grid-column:6 / -1}
 .plate-b .photo{aspect-ratio:16/10.5}
 .plate-b + .note{grid-column:6 / span 5}
-/* second row: two portraits, the left one dropped lower */
-.plate-c{grid-column:2 / span 5;align-self:start;margin-top:clamp(0px,14vw,200px)}
+/* second row: three portraits at staggered heights */
+.plate-c{grid-column:1 / span 4;align-self:start;margin-top:clamp(0px,14vw,200px)}
+.plate-e{grid-column:5 / span 4;align-self:start}
+.plate-e .photo{aspect-ratio:3/4}
 .plate-c .photo{aspect-ratio:3/4}
-.plate-d{grid-column:9 / -1}
+.plate-d{grid-column:9 / -1;align-self:start;margin-top:clamp(0px,6vw,90px)}
 .plate-d .photo{aspect-ratio:3/4}
 .photo.placeholder{background:var(--paper);border:1px dashed var(--stone);display:grid;place-items:center;text-align:center}
 .photo.placeholder::after{display:none}
 .photo.placeholder span{font:400 11px/1.6 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--stone-ink)}
 .photo.placeholder i{font-family:var(--italic);font-size:17px;letter-spacing:0;text-transform:none}
 @media (max-width:820px){
-  .intro .date-block,.intro .letter,.plate-a,.plate-b,.plate-b + .note,.plate-c,.plate-d{grid-column:1 / -1}
+  .intro .date-block,.intro .letter,.plate-a,.plate-b,.plate-b + .note,.plate-c,.plate-d,.plate-e{grid-column:1 / -1}
   .plate-a{width:72%}
   .plate-c{margin-top:0}
-  .plate-d{width:72%;margin-left:auto}
+  .plate-e{width:72%}
+  .plate-d{width:72%;margin-left:auto;margin-top:0}
 }
 
 /* ---------- the wedding (interior: softer, olive + candlelight) ---------- */
@@ -547,13 +550,17 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <figcaption><i>Under the Bourbon bridge</i></figcaption>
       </figure>
       <figure class="plate-b reveal">
-        <div class="photo hover-zoom"><img src="https://images.unsplash.com/photo-1729641576417-1a613d4d5d40?auto=format&fit=crop&w=1800&q=72" alt="The narrow cove beneath the town, turquoise water between limestone walls" loading="lazy"></div>
+        <div class="photo hover-zoom"><img src="/images/cove-lama-monachile.jpg" width="768" height="1024" alt="The path down to the pebble cove beneath Polignano's cliffs, crowded with swimmers and umbrellas" loading="lazy" style="object-position:50% 62%"></div>
         <figcaption><i>The cove beneath the town</i></figcaption>
       </figure>
       <!-- Third and fourth intro photos -->
       <figure class="plate-c reveal">
         <div class="photo hover-zoom"><img src="/images/window-adriatic.jpg" width="768" height="1024" alt="Champagne bottles on a stone sill beneath a small window framing the Adriatic" loading="lazy"></div>
         <figcaption><i>A window on the Adriatic</i></figcaption>
+      </figure>
+      <figure class="plate-e reveal">
+        <div class="photo hover-zoom"><img src="/images/grapevine-lane.jpg" width="768" height="1024" alt="A grapevine heavy with fruit over a whitewashed lane leading to the sea" loading="lazy"></div>
+        <figcaption><i>Grapes over the lanes</i></figcaption>
       </figure>
       <figure class="plate-d reveal">
         <div class="photo hover-zoom"><img src="/images/old-town-golden-hour.jpg" width="768" height="1024" alt="Polignano a Mare's old town on its limestone cliff above the Adriatic at golden hour" loading="lazy"></div>
