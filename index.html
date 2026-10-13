@@ -155,10 +155,10 @@ section{padding-block:clamp(88px,12vw,180px)}
 .plate-b{grid-column:6 / -1}
 .plate-b .photo{aspect-ratio:16/10.5}
 .plate-b + .note{grid-column:6 / span 5}
-/* second row mirrors the first: wide on the left, tall on the right, dropped a little */
-.plate-c{grid-column:2 / span 6;align-self:start}
-.plate-c .photo{aspect-ratio:4/3}
-.plate-d{grid-column:9 / -1;margin-top:clamp(0px,8vw,120px)}
+/* second row: two portraits, the left one dropped lower */
+.plate-c{grid-column:2 / span 5;align-self:start;margin-top:clamp(0px,14vw,200px)}
+.plate-c .photo{aspect-ratio:3/4}
+.plate-d{grid-column:9 / -1}
 .plate-d .photo{aspect-ratio:3/4}
 .photo.placeholder{background:var(--paper);border:1px dashed var(--stone);display:grid;place-items:center;text-align:center}
 .photo.placeholder::after{display:none}
@@ -167,7 +167,8 @@ section{padding-block:clamp(88px,12vw,180px)}
 @media (max-width:820px){
   .intro .date-block,.intro .letter,.plate-a,.plate-b,.plate-b + .note,.plate-c,.plate-d{grid-column:1 / -1}
   .plate-a{width:72%}
-  .plate-d{width:72%;margin-left:auto;margin-top:0}
+  .plate-c{margin-top:0}
+  .plate-d{width:72%;margin-left:auto}
 }
 
 /* ---------- the wedding (interior: softer, olive + candlelight) ---------- */
@@ -551,8 +552,8 @@ html.phase-2 [data-phase="1"]{display:none!important}
       </figure>
       <!-- Third and fourth photos: placeholders until chosen -->
       <figure class="plate-c reveal">
-        <div class="photo placeholder" role="img" aria-label="Photo to come"><span>Photo to come<br><i>Landscape photo, 4:3</i></span></div>
-        <figcaption><i>Caption to come</i></figcaption>
+        <div class="photo hover-zoom"><img src="/images/window-adriatic.jpg" width="768" height="1024" alt="Champagne bottles on a stone sill beneath a small window framing the Adriatic" loading="lazy"></div>
+        <figcaption><i>A window on the Adriatic</i></figcaption>
       </figure>
       <figure class="plate-d reveal">
         <div class="photo placeholder" role="img" aria-label="Photo to come"><span>Photo to come<br><i>Portrait photo, 3:4</i></span></div>
