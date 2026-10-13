@@ -19,3 +19,9 @@ with (security_invoker = true) as
 select distinct on (lower(name)) name, email, leaning, note, created_at
 from public.save_the_date_replies
 order by lower(name), created_at desc;
+
+-- Newer Supabase projects don't grant table access to the server role automatically.
+-- Grant it to service_role only (what the secret key uses); the public gets nothing.
+grant usage on schema public to service_role;
+grant select, insert, update, delete on table public.save_the_date_replies to service_role;
+grant select on public.save_the_date_latest to service_role;
