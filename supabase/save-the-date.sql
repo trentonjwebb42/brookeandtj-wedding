@@ -1,5 +1,5 @@
 -- Save-the-date replies table. Run once in Supabase: SQL Editor -> New query -> paste -> Run.
--- Row level security is on with no policies, so only the server (service_role key in
+-- Row level security is on with no policies, so only the server (secret key in
 -- Vercel) can read or write. Nothing on the public website can read the list.
 
 create table if not exists public.save_the_date_replies (
