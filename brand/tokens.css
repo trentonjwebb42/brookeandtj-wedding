@@ -1,23 +1,21 @@
 /*
  * Brooke & TJ — brand tokens
- * Source: brand/color-palette.png and brand/typography.png
+ * Source: final stationery suite (supersedes brand/color-palette.png)
  */
 
 :root {
-  /* Identity */
-  --color-ivory: #F1EDE4;
-  --color-black: #171716;
+  /* Final stationery palette. Shutter Green is the only accent: use it sparingly. */
+  --color-limestone: #F2EEE4;    /* background */
+  --color-ink: #1A1A18;          /* text */
+  --color-shutter-green: #2E3B30;/* the only accent */
+  --color-olive: #6B6E4A;
+  --color-stone: #BBAE9B;
 
-  /* Accents */
-  --color-environment: #50563E; /* olive green */
-  --color-surprise: #391613;    /* deep oxblood */
-  --color-venue: #B2A691;       /* warm taupe */
-
-  /* Typography
-   * Titles:  Ms Claudy (script) paired with Bellefair (serif caps)
-   * Body:    Adobe Garamond Pro: subheadings in letterspaced caps, body regular, subtext italic
+  /* Typography: final stationery suite (Adobe Fonts web project noc6yvf)
+   * Display, headings & caps labels: orpheuspro (Regular only)
+   * Body: adobe-garamond-pro Regular; italics: adobe-garamond-pro Italic
+   * Names ampersand: Adobe Garamond Pro Italic alternate. No bold anywhere. Ms Claudy is print-only.
    */
-  --font-script: "Ms Claudy", cursive;
-  --font-display: "Bellefair", serif;
-  --font-body: "adobe-garamond-pro", "EB Garamond", Garamond, serif;
+  --font-display: "orpheuspro", "Trajan Pro", Georgia, serif;
+  --font-body: "adobe-garamond-pro", Garamond, "EB Garamond", Georgia, serif;
 }
