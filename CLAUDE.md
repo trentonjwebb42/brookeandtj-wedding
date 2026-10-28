@@ -15,6 +15,7 @@ Live at https://brookeandtj.wedding. Wedding: Friday, September 10, 2027 at Vill
   - Phase 2 = full site: renders each `<template data-phase2="name">` into its `<div data-slot="name">`, shows `[data-phase="2"]`, hides `[data-phase="1"]`.
 - New Phase 2 content goes inside a `<template data-phase2="…">` so it stays hidden until launch.
 - The save-the-date reply form (`#replyForm`, Phase 1) posts to `/api/reply`, which upserts on `reply_key` (same email, or same name if no email) so a person has one row. The confirmation scrolls into view, repeats their answer and is remembered on their device (localStorage `btj-reply-v1`).
+- Every save-the-date reply emails the couple via the wedding Gmail (nodemailer, `package.json`). Needs Vercel env vars `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `NOTIFY_TO`; without them replies still save, just no email.
 - The RSVP form (`#rsvpForm`) is a design prototype that saves nothing. The plan is to wire it to Supabase with guest lookup by household before switching to phase 2.
 
 ## Design

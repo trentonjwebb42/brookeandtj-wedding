@@ -1,0 +1,8 @@
+{
+  "name": "brookeandtj-wedding",
+  "private": true,
+  "description": "Brooke & TJ wedding site. Static index.html plus one Vercel function (api/reply.js).",
+  "dependencies": {
+    "nodemailer": "10.0.16"
+  }
+}
