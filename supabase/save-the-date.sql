@@ -25,3 +25,14 @@ order by lower(name), created_at desc;
 grant usage on schema public to service_role;
 grant select, insert, update, delete on table public.save_the_date_replies to service_role;
 grant select on public.save_the_date_latest to service_role;
+
+-- One reply per person (added Oct 2026). The same email, or the same name when no
+-- email is given, updates the earlier reply instead of adding a duplicate row.
+alter table public.save_the_date_replies
+  add column if not exists updated_at timestamptz not null default now();
+alter table public.save_the_date_replies
+  add column if not exists reply_key text generated always as (
+    coalesce(nullif(lower(btrim(email)), ''), 'name:' || lower(btrim(name)))
+  ) stored;
+create unique index if not exists save_the_date_replies_reply_key_idx
+  on public.save_the_date_replies (reply_key);

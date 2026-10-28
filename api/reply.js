@@ -73,14 +73,17 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const r = await fetch(`${SUPABASE_URL}/rest/v1/save_the_date_replies`, {
+    // One reply per person: the same email (or the same name, if no email) updates
+    // their earlier reply instead of adding a row. reply_key is a generated column
+    // with a unique index (see supabase/save-the-date.sql).
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/save_the_date_replies?on_conflict=reply_key`, {
       method: 'POST',
       headers: {
         ...authHeaders(KEY),
         'Content-Type': 'application/json',
-        Prefer: 'return=minimal',
+        Prefer: 'resolution=merge-duplicates,return=minimal',
       },
-      body: JSON.stringify({ name, email: email || null, leaning, note: note || null }),
+      body: JSON.stringify({ name, email: email || null, leaning, note: note || null, updated_at: new Date().toISOString() }),
     });
     if (!r.ok) {
       console.error('Supabase insert failed', r.status, await r.text());
