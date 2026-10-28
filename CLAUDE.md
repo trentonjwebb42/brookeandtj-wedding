@@ -20,6 +20,7 @@ Live at https://brookeandtj.wedding. Wedding: Friday, September 10, 2027 at Vill
 - The page currently uses Google Fonts (Bellefair, Cormorant Garamond, Jost). Ms Claudy and Adobe Garamond Pro need web licenses before they can be used on the site.
 - Photos are Unsplash placeholders, to be replaced with the couple's own over time.
 - `drafts/` holds earlier versions for reference only.
+- Never recommend or mention Grotta Palazzese (the hotel/restaurant) anywhere on the site.
 
 ## Rules
 - **This repo is public.** Never commit guest names, emails, addresses, RSVP responses, API secrets or keys. Guest data belongs in the database; secrets belong in Vercel environment variables.
