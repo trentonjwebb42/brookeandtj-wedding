@@ -13,11 +13,11 @@
   --color-surprise: #391613;    /* deep oxblood */
   --color-venue: #B2A691;       /* warm taupe */
 
-  /* Typography
-   * Titles:  Ms Claudy (script) paired with Bellefair (serif caps)
-   * Body:    Adobe Garamond Pro: subheadings in letterspaced caps, body regular, subtext italic
+  /* Typography: final stationery suite (Adobe Fonts web project noc6yvf)
+   * Display, headings & caps labels: orpheuspro (Regular only)
+   * Body: adobe-garamond-pro Regular; italics: adobe-garamond-pro Italic
+   * Names ampersand: Adobe Garamond Pro Italic alternate. No bold anywhere. Ms Claudy is print-only.
    */
-  --font-script: "Ms Claudy", cursive;
-  --font-display: "Bellefair", serif;
-  --font-body: "adobe-garamond-pro", "EB Garamond", Garamond, serif;
+  --font-display: "orpheuspro", "Trajan Pro", Georgia, serif;
+  --font-body: "adobe-garamond-pro", Garamond, "EB Garamond", Georgia, serif;
 }

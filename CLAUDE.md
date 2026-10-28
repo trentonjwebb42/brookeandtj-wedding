@@ -18,7 +18,7 @@ Live at https://brookeandtj.wedding. Wedding: Friday, September 10, 2027 at Vill
 
 ## Design
 - Brand guidelines live in `brand/` (palette, typography, `tokens.css`). Accent colors: olive `#50563E`, oxblood `#391613`, taupe `#B2A691`, plus ivory `#F1EDE4` and black `#171716`.
-- The page currently uses Google Fonts (Bellefair, Cormorant Garamond, Jost). Ms Claudy and Adobe Garamond Pro need web licenses before they can be used on the site.
+- Fonts come from the Adobe Fonts web project (`https://use.typekit.net/noc6yvf.css`): `orpheuspro` for the hero, headings and all small caps (labels, nav, dates, buttons, footer) at one size (`--caps-size`); `adobe-garamond-pro` Regular for body and Italic for italic phrases. No bold anywhere. The ampersand in "Brooke & TJ" is wrapped in `<span class="amp">` and uses the Garamond Italic alternate via `--amp-features`. Ms Claudy stays off the site.
 - Photos are Unsplash placeholders, to be replaced with the couple's own over time.
 - `drafts/` holds earlier versions for reference only.
 - Never recommend or mention Grotta Palazzese (the hotel/restaurant) anywhere on the site.
