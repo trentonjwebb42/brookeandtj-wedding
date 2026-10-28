@@ -335,6 +335,19 @@ section{padding-block:clamp(88px,12vw,180px)}
 .town h3{font-size:clamp(34px,3.8vw,56px);line-height:1}
 .town h3 .it{display:block;font-size:.46em;line-height:1.2;margin-top:.25em;color:var(--olive)}
 .town p{font-size:15px;color:var(--ink-2);max-width:46ch;margin:0}
+/* Further afield: text-only list under the town cards */
+.afield{max-width:1120px;margin:clamp(72px,9vw,128px) auto 0;border-top:1px solid var(--ink);padding-top:clamp(28px,3vw,40px)}
+.afield-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(28px,3vw,40px)}
+.afield-head h3{font-size:clamp(30px,3.2vw,44px);line-height:1}
+.afield-head h3 .it{color:var(--olive)}
+.afield-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(24px,4vw,64px);row-gap:40px}
+.afield-col .label{display:block;padding-bottom:12px;margin-bottom:6px;border-bottom:1px solid color-mix(in srgb,var(--stone) 60%,transparent);color:var(--olive)}
+.afield-col ul{list-style:none;margin:0;padding:0}
+.afield-col li{padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--stone) 35%,transparent)}
+.afield-col li:last-child{border-bottom:0}
+.afield-col b{display:block;font-family:var(--display);font-weight:400;font-size:21px;line-height:1.2;color:var(--ink)}
+.afield-col span{display:block;font-size:14px;line-height:1.5;color:var(--ink-2);margin-top:2px}
+@media (max-width:860px){.afield-cols{grid-template-columns:1fr}}
 @media (max-width:760px){.towns-lede p{grid-column:1 / -1}.towns{grid-template-columns:1fr;padding-bottom:0}.town:nth-child(even){margin:0}.town:nth-child(n) .photo{aspect-ratio:4/3}}
 
 /* ---------- RSVP ---------- */
@@ -906,6 +919,42 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <h3>Lecce <span class="it">the baroque south</span></h3>
         <p>The heart of the Salento, built from a soft golden limestone carved into some of Italy's most exuberant baroque façades. Pair it with a swim on the Salento coast.</p>
       </article>
+    </div>
+
+    <div class="afield">
+      <div class="afield-head">
+        <h3>Further afield <span class="it">if you're staying on</span></h3>
+        <span class="label stone">From Polignano, by car · approximate</span>
+      </div>
+      <div class="afield-cols">
+        <div class="afield-col">
+          <span class="label">Under 45 minutes</span>
+          <ul>
+            <li><b>Grotte di Castellana</b><span>Show caves you tour on foot, about 20 minutes away. An easy half-day.</span></li>
+            <li><b>Savelletri</b><span>A small fishing village on the coast, close to the masserie.</span></li>
+            <li><b>Cisternino</b><span>A hilltop town in the Valle d'Itria with views across the trulli country.</span></li>
+            <li><b>Martina Franca</b><span>A baroque town in the hills, with a maze of white lanes.</span></li>
+          </ul>
+        </div>
+        <div class="afield-col">
+          <span class="label">About an hour</span>
+          <ul>
+            <li><b>Trani</b><span>A port town whose pale cathedral stands right at the edge of the sea.</span></li>
+            <li><b>Castel del Monte</b><span>A mysterious octagonal castle on a hilltop, and a UNESCO World Heritage Site.</span></li>
+          </ul>
+        </div>
+        <div class="afield-col">
+          <span class="label">Salento coast · 1½–2½ hrs</span>
+          <ul>
+            <li><b>Grotta della Poesia</b><span>A natural sea pool in the rock that you can swim in.</span></li>
+            <li><b>Torre dell'Orso</b><span>A long sandy beach with sea stacks just offshore.</span></li>
+            <li><b>Porto Cesareo &amp; Punta Prosciutto</b><span>White sand and shallow, clear water.</span></li>
+            <li><b>Otranto</b><span>A seaside old town with a castle and a cathedral famous for its mosaic floor.</span></li>
+            <li><b>Gallipoli</b><span>An old town on its own island, ringed by walls.</span></li>
+            <li><b>Santa Maria di Leuca</b><span>The lighthouse at Italy's heel, where the Adriatic meets the Ionian.</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
