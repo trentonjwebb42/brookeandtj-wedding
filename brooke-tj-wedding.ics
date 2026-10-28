@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Brooke and TJ//Wedding//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:brooke-tj-wedding-weekend-2027@brookeandtj.wedding
+DTSTAMP:20261028T000000Z
+DTSTART;VALUE=DATE:20270909
+DTEND;VALUE=DATE:20270912
+SUMMARY:Brooke & TJ wedding weekend
+LOCATION:Polignano a Mare\, Puglia\, Italy
+DESCRIPTION:Thursday welcome party\, Friday wedding\, Saturday farewell day.\nDetails: https://brookeandtj.wedding
+URL:https://brookeandtj.wedding
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

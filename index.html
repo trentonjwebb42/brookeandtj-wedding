@@ -4,6 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Brooke &amp; TJ · Puglia</title>
+<meta name="description" content="Brooke &amp; TJ are getting married on September 10, 2027 in Polignano a Mare, Italy. Save the date, and start planning the trip.">
+<link rel="canonical" href="https://brookeandtj.wedding/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brookeandtj.wedding/">
+<meta property="og:site_name" content="Brooke &amp; TJ">
+<meta property="og:title" content="Brooke &amp; TJ · Save the date">
+<meta property="og:description" content="September 10, 2027 · Polignano a Mare, Italy. Join us for a weekend in Puglia.">
+<meta property="og:image" content="https://brookeandtj.wedding/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Brooke and TJ on the beach, with the words Save the date, September 10, 2027, Polignano a Mare, Italy">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -345,7 +357,16 @@ section{padding-block:clamp(88px,12vw,180px)}
 .town p{font-size:15px;color:var(--ink-2);max-width:46ch;margin:0}
 /* Further afield: text-only list under the town cards */
 .afield{max-width:1120px;margin:clamp(72px,9vw,128px) auto 0;border-top:1px solid var(--ink);padding-top:clamp(28px,3vw,40px)}
-.afield-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(28px,3vw,40px)}
+.afield-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;cursor:pointer;list-style:none}
+.afield-head::-webkit-details-marker{display:none}
+.afield[open] .afield-head{margin-bottom:clamp(28px,3vw,40px)}
+.afield-more{display:inline-flex;align-items:center;gap:14px}
+.afield-toggle{position:relative;width:14px;height:14px;flex:none}
+.afield-toggle::before,.afield-toggle::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--ink);transition:transform .3s}
+.afield-toggle::after{transform:rotate(90deg)}
+.afield[open] .afield-toggle::after{transform:rotate(0)}
+.afield-head:hover h3 .it{color:var(--wine)}
+.afield-head:focus-visible{outline:1px solid var(--wine);outline-offset:6px}
 .afield-head h3{font-size:clamp(30px,3.2vw,44px);line-height:1}
 .afield-head h3 .it{color:var(--olive)}
 .afield-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(24px,4vw,64px);row-gap:40px}
@@ -409,6 +430,10 @@ footer{background:var(--ink);color:var(--ivory);padding-block:clamp(80px,10vw,14
 .tone-paper{background:var(--paper)}
 .villa .venue .photo-col .inset{border-color:var(--paper)}
 .day .where{color:var(--olive)}
+.cal-row{margin-top:clamp(56px,7vw,96px);display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+.cal-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.cal-btn{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;color:var(--ink);border:1px solid var(--ink);padding:13px 22px;transition:background .3s,color .3s}
+.cal-btn:hover{background:var(--olive);border-color:var(--olive);color:var(--ivory)}
 .edition-note{margin-top:clamp(56px,7vw,96px);display:flex;align-items:center;justify-content:center;gap:20px;text-align:center}
 .edition-note::before,.edition-note::after{content:"";height:1px;width:clamp(32px,8vw,120px);background:var(--stone)}
 .edition-note p{font-family:var(--italic);font-style:italic;font-size:clamp(20px,2vw,26px);color:var(--wine);max-width:none}
@@ -514,12 +539,11 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <li><a href="#villa">The Villa</a></li>
         <li><a href="#travel">Travel &amp; Stay</a></li>
         <li><a href="#discover">Discover Puglia</a></li>
-        <li><a href="#towns">The Towns</a></li>
         <!-- Phase 2: RSVP link, revealed when SITE.phase = 2 -->
         <li data-phase="2"><a href="#rsvp" class="only-mobile">RSVP</a></li>
       </ul>
     </nav>
-    <a class="rsvp-btn needs-replies" href="#reply" data-phase="1">RSVP</a>
+    <a class="rsvp-btn needs-replies" href="#reply" data-phase="1">Reply</a>
     <a class="rsvp-btn" href="#rsvp" data-phase="2">RSVP</a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
@@ -578,7 +602,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
       <span class="label stone">A love letter to Puglia</span>
       <h2 id="intro-h" class="lede">Now we'd like to share this corner of the Adriatic with the people we love most.</h2>
       <p>Polignano a Mare is built on a shelf of pale limestone above the sea, its houses set right at the edge of the cliffs. Inland, the countryside is stone walls and olive trees that have stood for centuries. In September the sea is still warm and the evenings are made for long tables outside.</p>
-      <p>We'll open the weekend on Thursday evening with a welcome party at Villa Torre Bianca, marry there among the olive groves on Friday, and spend Saturday by the sea. In between, we hope you'll swim in the coves, linger over lunch and get happily lost in the old town.</p>
+      <p>Between the celebrations, we hope you'll swim in the coves, linger over lunch and get happily lost in the old town.</p>
       <p>This first edition of our site has everything you need to start planning the trip.</p>
       <span class="sign">Brooke &amp; TJ</span>
     </div>
@@ -646,7 +670,13 @@ html.phase-2 [data-phase="1"]{display:none!important}
       </article>
     </div>
 
-    <div class="edition-note" data-phase="1"><p>Further details and a formal invitation to follow.</p></div>
+    <div class="cal-row">
+      <span class="label stone">Save the weekend</span>
+      <div class="cal-btns">
+        <a class="cal-btn" href="/brooke-tj-wedding.ics">Apple &amp; Outlook</a>
+        <a class="cal-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Brooke+%26+TJ+wedding+weekend&amp;dates=20270909/20270912&amp;location=Polignano+a+Mare%2C+Puglia%2C+Italy&amp;details=Thursday+welcome+party%2C+Friday+wedding%2C+Saturday+farewell+day.+Details%3A+https%3A%2F%2Fbrookeandtj.wedding" target="_blank" rel="noopener">Google Calendar</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -657,7 +687,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
   <div class="wrap">
     <div class="reply-grid">
       <div class="reply-intro">
-        <span class="label stone">Une petite réponse</span>
+        <span class="label stone">Una piccola risposta</span>
         <h2 class="display" id="reply-h">Will you join us <span class="it">in Puglia?</span></h2>
         <p>Not a formal RSVP, just a heads-up so we can plan. The invitation, with travel and hotel details, will follow in the spring.</p>
       </div>
@@ -703,8 +733,8 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <figure class="inset"><div class="photo"><img src="/images/olive-grove-aerial.jpg" width="640" height="640" alt="Rows of olive trees seen from above in low evening light" loading="lazy"></div></figure>
       </div>
       <div class="text-col reveal">
-        <p class="lede">Both of our main celebrations take place at Villa Torre Bianca, a historic villa set among olive groves near the Adriatic coast.</p>
-        <p>Thursday's welcome party and Friday's wedding are both held at the villa. It sits apart from Polignano a Mare's old town, so if you're staying in town, plan on travelling out to the villa on both evenings. We'll share more about getting there with the formal invitation.</p>
+        <p class="lede">A historic villa set among olive groves near the Adriatic coast, and home to both of our evenings.</p>
+        <p>The villa sits in the countryside outside Polignano a Mare's old town. You'll find how to get there under Travel &amp; Stay.</p>
       </div>
     </div>
 
@@ -855,13 +885,6 @@ html.phase-2 [data-phase="1"]{display:none!important}
           <div class="atlas-thumb"><div class="photo"><img src="/images/aperitivo-terrace.jpg" alt="" loading="lazy" style="object-position:50% 72%"></div></div>
         </li>
         <li>
-          <button class="atlas-item" aria-expanded="false" data-img="https://images.unsplash.com/photo-1705945025983-7c34a4fac5eb?auto=format&fit=crop&w=1100&q=72" data-alt="A whitewashed town on a cliff above the sea" data-cap="Along the coast">
-            <span class="t">Nearby <span class="it">towns</span></span><span class="k">Day trips</span>
-            <span class="d">Monopoli and its old harbour are just down the coast, and the trulli country of the Valle d'Itria is half an hour inland. Our pick of the towns, from Bari to Lecce, follows below.</span>
-          </button>
-          <div class="atlas-thumb"><div class="photo"><img src="https://images.unsplash.com/photo-1705945025983-7c34a4fac5eb?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"></div></div>
-        </li>
-        <li>
           <button class="atlas-item" aria-expanded="false" data-img="/images/old-town-lane.jpg" data-alt="A whitewashed lane in the old town, hung with pink bougainvillea" data-cap="Il centro storico">
             <span class="t">Wander <span class="it">the old town</span></span><span class="k">In Polignano</span>
             <span class="d">Lose an hour in the lanes of the centro storico, look for lines of poetry painted on steps and doorways, and find the seafront statue of Domenico Modugno, the Polignano-born singer of "Volare".</span>
@@ -871,7 +894,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
       </ul>
       <figure class="atlas-fig" aria-live="polite">
         <div class="photo"><img id="atlasImg" src="https://images.unsplash.com/photo-1693402260804-3abed893fb99?auto=format&fit=crop&w=1100&q=72" alt="Swimmers in clear water between limestone walls"></div>
-        <figcaption><span id="atlasN">N° 1 / 6</span><i id="atlasCap">The cove at Lama Monachile</i></figcaption>
+        <figcaption><span id="atlasN">N° 1 / 5</span><i id="atlasCap">The cove at Lama Monachile</i></figcaption>
       </figure>
     </div>
 
@@ -881,8 +904,8 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <div class="pc-foot"><span class="label">Saluti dall'Italia</span><span class="it">a presto</span><span class="stamp" aria-hidden="true">B·T<br>2027</span></div>
       </div>
       <div class="aside">
-        <span class="label stone">A note</span>
-        <p>Think of this as the first pages of our travel journal. Our favourite restaurants, beach clubs and boat trips will join it closer to the wedding.</p>
+        <span class="label stone">Beyond Polignano</span>
+        <p>Polignano sits at the centre of it all. With a car, the coast, the trulli country of the Valle d'Itria and the baroque south are all within reach.</p>
       </div>
     </div>
   </div>
@@ -892,10 +915,9 @@ html.phase-2 [data-phase="1"]{display:none!important}
 <section class="towns-sec paper" id="towns" aria-labelledby="towns-h">
   <div class="wrap">
     <div class="spread-head">
-      <div class="kicker"><span class="num">V.</span><span class="label stone">Around Puglia</span></div>
+      <div class="kicker"><span class="num">IV.</span><span class="label stone">Discover Puglia</span></div>
       <h2 class="display" id="towns-h">The towns <span class="it">an easy drive in every direction</span></h2>
     </div>
-    <div class="towns-lede"><p class="lede">Polignano sits at the centre of it all. With a car, the coast, the trulli country of the Valle d'Itria and the baroque south are all within reach.</p></div>
 
     <div class="ruler" aria-hidden="true">
       <span class="label ruler-cap">From Polignano, by car · approximate</span>
@@ -946,11 +968,11 @@ html.phase-2 [data-phase="1"]{display:none!important}
       </article>
     </div>
 
-    <div class="afield">
-      <div class="afield-head">
+    <details class="afield">
+      <summary class="afield-head">
         <h3>Further afield <span class="it">if you're staying on</span></h3>
-        <span class="label stone">From Polignano, by car · approximate</span>
-      </div>
+        <span class="afield-more"><span class="label stone">12 more places · by car, approximate</span><span class="afield-toggle" aria-hidden="true"></span></span>
+      </summary>
       <div class="afield-cols">
         <div class="afield-col">
           <span class="label">Under 45 minutes</span>
@@ -980,7 +1002,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
           </ul>
         </div>
       </div>
-    </div>
+    </details>
   </div>
 </section>
 
@@ -1146,6 +1168,7 @@ var SITE = { phase: 1, replies: true };
   // scroll-spy for the current section
   var links={};
   document.querySelectorAll('#menu a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  links.towns=links.discover; // the towns are part of Discover Puglia
   if('IntersectionObserver' in window){
     var spy=new IntersectionObserver(function(entries){
       entries.forEach(function(e){

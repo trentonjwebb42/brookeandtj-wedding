@@ -6,6 +6,7 @@ Live at https://brookeandtj.wedding. Wedding: Friday, September 10, 2027 at Vill
 - Single static page: `index.html` (inline CSS + JS, no build step). Every push to `main` auto-deploys on Vercel.
 - Domain is registered on Cloudflare (DNS only, grey cloud: A `@` → 76.76.21.21, CNAME `www` → cname.vercel-dns.com). Don't turn on the Cloudflare proxy.
 - Brooke and TJ both edit this repo.
+- Link previews use `images/og-image.jpg` (1200×630). Add-to-calendar uses `brooke-tj-wedding.ics` (Sep 9–11, 2027) plus a Google Calendar link; `vercel.json` sets its content type.
 - Supabase free projects pause after 7 days without activity, which breaks `/api/reply`. `vercel.json` runs a daily Vercel cron that calls `GET /api/reply` (a harmless connection check that queries the table) to keep the project awake. Don't remove it.
 
 ## Phases

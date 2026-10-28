@@ -1,5 +1,14 @@
 {
   "crons": [
     { "path": "/api/reply", "schedule": "17 16 * * *" }
+  ],
+  "headers": [
+    {
+      "source": "/brooke-tj-wedding.ics",
+      "headers": [
+        { "key": "Content-Type", "value": "text/calendar; charset=utf-8" },
+        { "key": "Content-Disposition", "value": "inline; filename=\"brooke-tj-wedding.ics\"" }
+      ]
+    }
   ]
 }
