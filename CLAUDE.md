@@ -17,8 +17,8 @@ Live at https://brookeandtj.wedding. Wedding: Friday, September 10, 2027 at Vill
 - The RSVP form (`#rsvpForm`) is a design prototype that saves nothing. The plan is to wire it to Supabase with guest lookup by household before switching to phase 2.
 
 ## Design
-- Brand guidelines live in `brand/` (palette, typography, `tokens.css`). Accent colors: olive `#50563E`, oxblood `#391613`, taupe `#B2A691`, plus ivory `#F1EDE4` and black `#171716`.
-- Fonts come from the Adobe Fonts web project (`https://use.typekit.net/noc6yvf.css`): `orpheuspro` for the hero, headings and all small caps (labels, nav, dates, buttons, footer) at one size (`--caps-size`); `adobe-garamond-pro` Regular for body and Italic for italic phrases. No bold anywhere. The ampersand in "Brooke & TJ" is wrapped in `<span class="amp">` and uses the Garamond Italic alternate via `--amp-features`. Ms Claudy stays off the site.
+- Brand guidelines live in `brand/` (palette, typography, `tokens.css`). Palette (final stationery): Limestone `#F2EEE4` background, Ink `#1A1A18` text, Shutter Green `#2E3B30` as the only accent (used sparingly: hover/focus states and the signature), Olive `#6B6E4A`, Stone `#BBAE9B`. No red/oxblood.
+- Fonts come from the Adobe Fonts web project (`https://use.typekit.net/noc6yvf.css`): `orpheuspro` for the hero, headings and all small caps (labels, nav, dates, buttons, footer) at one size (`--caps-size`); `adobe-garamond-pro` Regular for body and Italic for italic phrases. No bold anywhere. The ampersand in "Brooke & TJ" is wrapped in `<span class="amp">` and set in Adobe Garamond Pro Italic (default glyph, option A; `--amp-features` controls OpenType features). Ms Claudy stays off the site.
 - Photos are Unsplash placeholders, to be replaced with the couple's own over time.
 - `drafts/` holds earlier versions for reference only.
 - Never recommend or mention Grotta Palazzese (the hotel/restaurant) anywhere on the site.

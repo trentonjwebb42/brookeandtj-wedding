@@ -1,17 +1,15 @@
 /*
  * Brooke & TJ — brand tokens
- * Source: brand/color-palette.png and brand/typography.png
+ * Source: final stationery suite (supersedes brand/color-palette.png)
  */
 
 :root {
-  /* Identity */
-  --color-ivory: #F1EDE4;
-  --color-black: #171716;
-
-  /* Accents */
-  --color-environment: #50563E; /* olive green */
-  --color-surprise: #391613;    /* deep oxblood */
-  --color-venue: #B2A691;       /* warm taupe */
+  /* Final stationery palette. Shutter Green is the only accent: use it sparingly. */
+  --color-limestone: #F2EEE4;    /* background */
+  --color-ink: #1A1A18;          /* text */
+  --color-shutter-green: #2E3B30;/* the only accent */
+  --color-olive: #6B6E4A;
+  --color-stone: #BBAE9B;
 
   /* Typography: final stationery suite (Adobe Fonts web project noc6yvf)
    * Display, headings & caps labels: orpheuspro (Regular only)
