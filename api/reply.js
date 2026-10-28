@@ -45,7 +45,6 @@ ${tally ? `<p style="margin:16px 0 0;color:#6B6E4A">All replies so far: ${esc(ta
     const send = transport.sendMail({
       from: `"Brooke & TJ website" <${user}>`,
       to,
-      replyTo: email || undefined,
       subject,
       text: lines.join('\n'),
       html,
