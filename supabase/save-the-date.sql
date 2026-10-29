@@ -36,3 +36,22 @@ alter table public.save_the_date_replies
   ) stored;
 create unique index if not exists save_the_date_replies_reply_key_idx
   on public.save_the_date_replies (reply_key);
+
+-- Keep-alive (added Oct 2026). Free projects pause without "a few user requests to the
+-- database each day", and one daily Vercel cron wasn't enough. pg_cron calls the
+-- project's own REST API every 4 hours with the publishable key, reading a harmless
+-- one-row view (no guest data). Replace <PUBLISHABLE_KEY> with the project's
+-- sb_publishable_... key when re-creating this (Project Settings > API keys).
+create or replace view public.keepalive with (security_invoker = true) as
+  select 1 as ok, now() as checked_at;
+grant select on public.keepalive to anon, authenticated, service_role;
+create extension if not exists pg_cron;
+create extension if not exists pg_net with schema extensions;
+select cron.schedule(
+  'keepalive-api-read',
+  '23 */4 * * *',
+  $$ select net.http_get(
+       url := 'https://afvywgppxhnvepuyqkxr.supabase.co/rest/v1/keepalive?select=ok,checked_at',
+       headers := jsonb_build_object('apikey', '<PUBLISHABLE_KEY>')
+     ) $$
+);
