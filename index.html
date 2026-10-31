@@ -264,13 +264,15 @@ section{padding-block:clamp(88px,12vw,180px)}
 @media (max-width:560px){.day figure{grid-column:1 / -1}}
 
 /* ---------- travel & stay ---------- */
-.legs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+.legs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
 .leg{padding:32px 32px 40px 0;display:flex;flex-direction:column;gap:14px;min-width:0}
 .leg + .leg{padding-left:32px;border-left:1px solid var(--stone)}
-.leg .code{font-family:var(--display);font-size:clamp(56px,6vw,88px);line-height:.9}
+.leg .code{font-family:var(--display);font-size:clamp(52px,5vw,76px);line-height:.9}
+.leg .code small{display:block;margin:.5em 0 0;font-size:max(17px,.28em)}
 .leg .code small{font-family:var(--italic);font-style:italic;font-size:.3em;color:var(--olive);margin-left:.3em}
 .leg p{font-size:var(--body-size);color:var(--ink-2)}
 .leg .verify{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone-ink)}
+@media (max-width:1180px) and (min-width:861px){.legs{grid-template-columns:repeat(2,minmax(0,1fr))}.leg:nth-child(3){padding-left:0;border-left:0}.leg:nth-child(n+3){border-top:1px solid var(--stone)}}
 @media (max-width:860px){.legs{grid-template-columns:1fr}.leg,.leg + .leg{padding-left:0;border-left:0}.leg + .leg{border-top:1px solid var(--stone)}}
 
 .stay-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin:clamp(96px,11vw,150px) 0 40px}
@@ -821,14 +823,19 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <p>Fly into Bari Karol Wojtyła Airport, the closest international airport to Polignano a Mare. From the US, expect to connect through a major European hub.</p>
       </div>
       <div class="leg">
-        <span class="label stone">By taxi or car</span>
-        <span class="code">45<small>km · about 45 min</small></span>
-        <p>Polignano a Mare is around 45 km down the coast from the airport. Taxis and private transfers wait at arrivals, and hire cars are easy to pick up if you plan to explore.</p>
+        <span class="label stone">By private transfer</span>
+        <span class="code">45<small>min · door to door</small></span>
+        <p>The easiest way in. A driver meets you at arrivals and takes you straight to your hotel, about 45 minutes down the coast. Book ahead, especially for late arrivals. Taxis also wait outside the terminal.</p>
+      </div>
+      <div class="leg">
+        <span class="label stone">By hire car</span>
+        <span class="code">SS16<small>the coast road</small></span>
+        <p>Pick up a car at the airport and follow the SS16 south along the coast, about 45 km. Worth it if you're staying in the countryside or planning day trips. Parking in the old town is limited, so check with your hotel.</p>
       </div>
       <div class="leg">
         <span class="label stone">By train</span>
         <span class="code">FS<small>via Bari Centrale</small></span>
-        <p>Take the airport train into Bari Centrale, then a regional train south to Polignano a Mare station, a short walk from the old town. Allow around an hour and a quarter in total.</p>
+        <p>Direct trains run from Bari Centrale to Polignano a Mare many times a day, often in under half an hour, and the station is a short walk from the old town. From the airport, take the airport train into Bari Centrale first. Allow about an hour and a half in all.</p>
       </div>
     </div>
 
@@ -877,7 +884,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
     <div class="tips">
       <span class="label stone">Before you go</span>
       <dl>
-        <div><dt>When to arrive</dt><dd>Aim to arrive by Wednesday, September 8, so you're rested for Thursday evening's welcome party. Flying from the US usually means an overnight flight and a connection.</dd></div>
+        <div><dt>When to arrive</dt><dd>Ideally, arrive by Wednesday, September 8, so you're rested for Thursday evening's welcome party. Flying from the US usually means an overnight flight and a connection.</dd></div>
         <div><dt>Staying on</dt><dd>If you can, add a few days before or after. Puglia's towns, beaches and countryside are worth the time.</dd></div>
         <div><dt>Getting around</dt><dd>A car is useful if you stay in the countryside or plan day trips. Polignano's old town is largely pedestrian, so check parking with your accommodation.</dd></div>
         <div><dt>Passports</dt><dd>Make sure your passport is valid well beyond your travel dates, and check current entry requirements before you book.</dd></div>
