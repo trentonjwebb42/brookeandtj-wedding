@@ -248,16 +248,15 @@ section{padding-block:clamp(88px,12vw,180px)}
 .days{display:flex;flex-direction:column}
 .day{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);column-gap:32px;row-gap:20px;padding-block:clamp(40px,5vw,64px);border-top:1px solid var(--ink);align-items:start}
 .day:last-child{border-bottom:1px solid var(--ink)}
-.day .numeral{font-family:var(--display);font-size:clamp(120px,17vw,260px);line-height:.78;letter-spacing:-.04em;margin:0;color:var(--stone)}
+/* date numerals: Adobe Garamond Pro old-style figures, kept modest */
+.day .numeral{font-family:var(--serif);font-weight:400;font-variant-numeric:oldstyle-nums;font-feature-settings:"onum" 1;font-size:clamp(76px,8vw,124px);line-height:.9;letter-spacing:0;margin:0;color:var(--stone)}
 .day.confirmed .numeral{color:var(--ink)}
-.day.confirmed .numeral em{color:var(--olive)}
-.day .numeral em{font-family:var(--italic);font-size:.22em;letter-spacing:0;vertical-align:top;margin-left:.15em;position:relative;top:.3em}
 .day .body{display:flex;flex-direction:column;gap:16px;padding-top:10px}
-.day .body .label{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.day .body .day-date{font-size:calc(var(--caps-size) + 2px)}
+.day .body .day-where{color:var(--olive);margin-top:-6px}
 .status{padding:4px 10px;border:1px solid var(--stone-ink);color:var(--stone-ink);font-size:10px;letter-spacing:.22em}
 .status.ok{border-color:var(--ink);color:var(--ink)}
 .day h3{font-size:clamp(27px,3vw,41px)}
-.day h3 .it{color:var(--olive)}
 .day p{color:var(--ink-2)}
 .day .photo{aspect-ratio:4/5}
 @media (max-width:900px){.day{grid-template-columns:1fr 1fr}.day .numeral{grid-column:1 / -1}.day .body{grid-column:1 / -1}.day figure{grid-column:1 / span 1}}
@@ -442,7 +441,6 @@ footer{background:var(--ink);color:var(--ivory);padding-block:clamp(80px,10vw,14
 /* ---------- Phase 1 (save-the-date) additions ---------- */
 .tone-paper{background:var(--paper)}
 .villa .venue .photo-col .inset{border-color:var(--paper)}
-.day .where{color:var(--olive)}
 .cal-row{margin-top:clamp(56px,7vw,96px);display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
 .cal-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .cal-btn{font-family:var(--display);font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;color:var(--ink);border:1px solid var(--ink);padding:13px 22px;transition:background .3s,color .3s}
@@ -681,28 +679,31 @@ html.phase-2 [data-phase="1"]{display:none!important}
 
     <div class="days">
       <article class="day confirmed reveal">
-        <p class="numeral">09<em>Thu</em></p>
+        <p class="numeral">09</p>
         <div class="body">
-          <span class="label">Thursday, September 9 · <span class="where">Villa Torre Bianca</span></span>
-          <h3>Welcome <span class="it">celebration</span></h3>
+          <span class="label day-date">Thursday, September 9</span>
+          <h3>Welcome celebration</h3>
+          <span class="label day-where">Villa Torre Bianca</span>
           <p>An evening welcome party at Villa Torre Bianca, bringing everyone together to begin the wedding festivities in Puglia.</p>
         </div>
         <figure class="photo hover-zoom"><img src="/images/villa-torre-bianca-pool.jpg" width="640" height="640" alt="Villa Torre Bianca's tower reflected in the pool among olive trees" loading="lazy" style="object-position:65% 50%"></figure>
       </article>
       <article class="day confirmed reveal">
-        <p class="numeral">10<em>Fri</em></p>
+        <p class="numeral">10</p>
         <div class="body">
-          <span class="label">Friday, September 10 · <span class="where">Villa Torre Bianca</span></span>
-          <h3>The <span class="it">wedding</span></h3>
+          <span class="label day-date">Friday, September 10</span>
+          <h3>The wedding</h3>
+          <span class="label day-where">Villa Torre Bianca</span>
           <p>Our ceremony and reception at Villa Torre Bianca, surrounded by olive groves.</p>
         </div>
         <figure class="photo hover-zoom"><img src="/images/villa-torre-bianca.jpg" width="640" height="640" alt="Arched windows and stone balustrade of Villa Torre Bianca above the olive groves" loading="lazy" style="object-position:70% 50%"></figure>
       </article>
       <article class="day reveal">
-        <p class="numeral">11<em>Sat</em></p>
+        <p class="numeral">11</p>
         <div class="body">
-          <span class="label">Saturday, September 11 · <span class="where">The Adriatic coast</span></span>
-          <h3>Farewell <span class="it">day</span></h3>
+          <span class="label day-date">Saturday, September 11</span>
+          <h3>Farewell day</h3>
+          <span class="label day-where">The Adriatic coast</span>
           <p>An optional final day together to enjoy the Adriatic coast, perhaps out on the water. Details to follow.</p>
         </div>
         <figure class="photo hover-zoom"><img src="/images/farewell-cliffs.jpg" width="768" height="1024" alt="Boats on the Adriatic below the cliffside buildings of Polignano a Mare" loading="lazy"></figure>
