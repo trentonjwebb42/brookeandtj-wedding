@@ -248,8 +248,8 @@ section{padding-block:clamp(88px,12vw,180px)}
 .days{display:flex;flex-direction:column}
 .day{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);column-gap:32px;row-gap:20px;padding-block:clamp(40px,5vw,64px);border-top:1px solid var(--ink);align-items:start}
 .day:last-child{border-bottom:1px solid var(--ink)}
-/* date numerals: Adobe Garamond Pro old-style figures, kept modest */
-.day .numeral{font-family:var(--serif);font-weight:400;font-variant-numeric:oldstyle-nums;font-feature-settings:"onum" 1;font-size:clamp(76px,8vw,124px);line-height:.9;letter-spacing:0;margin:0;color:var(--stone)}
+/* date numerals: Orpheus Pro, kept modest */
+.day .numeral{font-family:var(--display);font-weight:400;font-size:clamp(76px,8vw,124px);line-height:.9;letter-spacing:0;margin:0;color:var(--stone)}
 .day .numeral{color:var(--ink)}
 .day.feature .numeral{color:var(--olive)}  /* the wedding day stands out */
 .day .body{display:flex;flex-direction:column;gap:16px;padding-top:10px}
@@ -680,7 +680,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
 
     <div class="days">
       <article class="day confirmed reveal">
-        <p class="numeral">09</p>
+        <p class="numeral">9</p>
         <div class="body">
           <span class="label day-date">Thursday, September 9</span>
           <h3>Welcome celebration</h3>
