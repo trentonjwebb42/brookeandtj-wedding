@@ -250,7 +250,8 @@ section{padding-block:clamp(88px,12vw,180px)}
 .day:last-child{border-bottom:1px solid var(--ink)}
 /* date numerals: Adobe Garamond Pro old-style figures, kept modest */
 .day .numeral{font-family:var(--serif);font-weight:400;font-variant-numeric:oldstyle-nums;font-feature-settings:"onum" 1;font-size:clamp(76px,8vw,124px);line-height:.9;letter-spacing:0;margin:0;color:var(--stone)}
-.day.confirmed .numeral{color:var(--ink)}
+.day .numeral{color:var(--ink)}
+.day.feature .numeral{color:var(--olive)}  /* the wedding day stands out */
 .day .body{display:flex;flex-direction:column;gap:16px;padding-top:10px}
 .day .body .day-date{font-size:calc(var(--caps-size) + 2px)}
 .day .body .day-where{color:var(--olive);margin-top:-6px}
@@ -688,7 +689,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
         </div>
         <figure class="photo hover-zoom"><img src="/images/villa-torre-bianca-pool.jpg" width="640" height="640" alt="Villa Torre Bianca's tower reflected in the pool among olive trees" loading="lazy" style="object-position:65% 50%"></figure>
       </article>
-      <article class="day confirmed reveal">
+      <article class="day confirmed feature reveal">
         <p class="numeral">10</p>
         <div class="body">
           <span class="label day-date">Friday, September 10</span>
