@@ -435,13 +435,6 @@ footer{background:var(--ink);color:var(--ivory);padding-block:clamp(80px,10vw,14
 .foot-top{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
 .foot-top svg{width:min(150px,40vw);height:auto}
 .foot-top .it{font-size:clamp(24px,2.6vw,34px)}
-.colophon{margin-top:clamp(72px,9vw,120px);padding-top:28px;border-top:1px solid rgba(243,239,230,.25);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:24px}
-.colophon ul{list-style:none;margin:0;padding:0;columns:3 220px;column-gap:32px;font-size:14px;color:var(--stone)}
-.colophon li{break-inside:avoid;padding:3px 0}
-.colophon a{text-decoration:none;border-bottom:1px solid rgba(188,174,153,.35)}
-.colophon a:hover{color:var(--ivory)}
-.colophon .label{color:var(--stone)}
-@media (max-width:700px){.colophon{grid-template-columns:1fr}}
 
 /* ---------- Phase 1 (save-the-date) additions ---------- */
 .tone-paper{background:var(--paper)}
@@ -551,7 +544,7 @@ html.phase-2 [data-phase="1"]{display:none!important}
 
 /* ---------- one-size caps: labels, nav, dates, buttons, footer (Orpheus Pro) ---------- */
 .label,.tbc,figcaption,.cap,.mono-link span,.nav ul a,.nav .rsvp-btn,.menu-btn,.coords,.photo.placeholder span,
-.stop b,.btn,.cal-btn,.lean small,.proto strong,.status,.stamp,.colophon .label{
+.stop b,.btn,.cal-btn,.lean small,.proto strong,.status,.stamp{
   font-family:var(--display);font-weight:400;font-size:var(--caps-size);letter-spacing:var(--caps-track);text-transform:uppercase;line-height:1.3}
 @media (max-width:1180px){.nav .wrap .rsvp-btn{font-size:var(--caps-size)}}
 /* the names' ampersand: Adobe Garamond Pro Italic alternate */
@@ -1127,32 +1120,6 @@ html.phase-2 [data-phase="1"]{display:none!important}
       <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#bt"/></svg>
       <span class="it">Brooke <span class="amp">&amp;</span> TJ</span>
       <span class="label" style="color:var(--stone)">10 · IX · MMXXVII · Polignano a Mare</span>
-    </div>
-    <div class="colophon">
-      <span class="label">Photographs</span>
-      <ul>
-        <li><a href="https://unsplash.com/photos/yAn892ej5kQ" target="_blank" rel="noopener">Cover · Vincenzo De Simone</a></li>
-        <li><a href="https://unsplash.com/photos/ag-2vUYJLpM" target="_blank" rel="noopener">Vincenzo De Simone</a></li>
-        <li><a href="https://unsplash.com/photos/1pLswe4J8nk" target="_blank" rel="noopener">Attila Tercz</a></li>
-        <li><a href="https://unsplash.com/photos/5moAmBOtRnE" target="_blank" rel="noopener">Mathilde Ro</a></li>
-        <li><a href="https://unsplash.com/photos/CWwYdFYKIw0" target="_blank" rel="noopener">Mathilde Ro</a></li>
-        <li><a href="https://unsplash.com/photos/mAOTatwrE_o" target="_blank" rel="noopener">Antonio Magrì</a></li>
-        <li><a href="https://unsplash.com/photos/FtEfhGtvCCc" target="_blank" rel="noopener">Giordano Rossoni</a></li>
-        <li><a href="https://unsplash.com/photos/HLzVVc6WpD4" target="_blank" rel="noopener">Emma Harrisova</a></li>
-        <li><a href="https://unsplash.com/photos/bCz1pBFoy3w" target="_blank" rel="noopener">Aron Marinelli</a></li>
-        <li><a href="https://unsplash.com/photos/afJpz_uIS4Q" target="_blank" rel="noopener">Eleonora Altomare</a></li>
-        <li><a href="https://unsplash.com/photos/NDkzhafhgTc" target="_blank" rel="noopener">Stephan Valentin</a></li>
-        <li><a href="https://unsplash.com/photos/5eRF_YRRmIM" target="_blank" rel="noopener">Nicolas Weldingh</a></li>
-        <li><a href="https://unsplash.com/photos/7n6f_Y-1JOQ" target="_blank" rel="noopener">Maria Bobrova</a></li>
-        <li><a href="https://unsplash.com/photos/wPXjinC8lTs" target="_blank" rel="noopener">Robert Bye</a></li>
-        <li><a href="https://unsplash.com/photos/2OCbq5dl_f4" target="_blank" rel="noopener">Flo P</a></li>
-        <li><a href="https://unsplash.com/photos/i3eQftGYEWM" target="_blank" rel="noopener">Léa</a></li>
-        <li><a href="https://unsplash.com/photos/EVdHoeN6XxY" target="_blank" rel="noopener">Andrea Giardini</a></li>
-        <li><a href="https://unsplash.com/photos/uNvgvo2cs7k" target="_blank" rel="noopener">Sam Ferrara</a></li>
-        <li><a href="https://unsplash.com/photos/UFv76iOCKmA" target="_blank" rel="noopener">Lucia Gherra</a></li>
-        <li><a href="https://unsplash.com/photos/4UiVAoN6szw" target="_blank" rel="noopener">Chikashi Miyamoto</a></li>
-        <li>All via Unsplash, under the Unsplash License</li>
-      </ul>
     </div>
   </div>
 </footer>
