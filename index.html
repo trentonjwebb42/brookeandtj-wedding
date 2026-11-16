@@ -185,9 +185,11 @@ section{padding-block:clamp(88px,12vw,180px)}
 .intro .plates{grid-column:1 / -1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px;margin-top:clamp(24px,5vw,72px)}
 .plate-a{grid-column:1 / span 4;align-self:end}
 .plate-a .photo{aspect-ratio:3/4.4}
-.plate-b{grid-column:6 / -1}
-.plate-b .photo{aspect-ratio:16/10.5}
-.plate-b + .note{grid-column:6 / span 5}
+/* top row: three portraits at staggered heights */
+.plate-b{grid-column:5 / span 4;align-self:start}
+.plate-b .photo{aspect-ratio:3/4}
+.plate-f{grid-column:9 / -1;align-self:start;margin-top:clamp(0px,8vw,120px)}
+.plate-f .photo{aspect-ratio:3/4}
 /* second row: three portraits at staggered heights */
 .plate-c{grid-column:1 / span 4;align-self:start;margin-top:clamp(0px,14vw,200px)}
 .plate-e{grid-column:5 / span 4;align-self:start}
@@ -200,7 +202,9 @@ section{padding-block:clamp(88px,12vw,180px)}
 .photo.placeholder span{font:400 11px/1.6 var(--display);letter-spacing:.24em;text-transform:uppercase;color:var(--stone-ink)}
 .photo.placeholder i{font-family:var(--italic);font-size:17px;letter-spacing:0;text-transform:none}
 @media (max-width:820px){
-  .intro .date-block,.intro .letter,.plate-a,.plate-b,.plate-b + .note,.plate-c,.plate-d,.plate-e{grid-column:1 / -1}
+  .intro .date-block,.intro .letter,.plate-a,.plate-b,.plate-c,.plate-d,.plate-e,.plate-f{grid-column:1 / -1}
+  .plate-b{width:80%;margin-left:auto}
+  .plate-f{width:72%;margin-top:0}
   .plate-a{width:72%}
   .plate-c{margin-top:0}
   .plate-e{width:72%}
@@ -651,8 +655,12 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <figcaption><i>Under the Bourbon bridge</i></figcaption>
       </figure>
       <figure class="plate-b reveal">
-        <div class="photo hover-zoom"><img src="/images/cove-beneath-town.jpg" width="1100" height="1467" alt="The path down to the pebble cove beneath Polignano's cliffs, crowded with swimmers and umbrellas" loading="lazy" style="object-position:50% 58%"></div>
+        <div class="photo hover-zoom"><img src="/images/cove-beneath-town.jpg" width="1100" height="1467" alt="The path down to the pebble cove beneath Polignano's cliffs, crowded with swimmers and umbrellas" loading="lazy" style="object-position:50% 50%"></div>
         <figcaption><i>The cove beneath the town</i></figcaption>
+      </figure>
+      <figure class="plate-f reveal">
+        <div class="photo placeholder" role="img" aria-label="Photo to come"><span>Photo to come<br><i>Portrait photo, 3:4</i></span></div>
+        <figcaption><i>Caption to come</i></figcaption>
       </figure>
       <!-- Third and fourth intro photos -->
       <figure class="plate-c reveal">
@@ -664,8 +672,8 @@ html.phase-2 [data-phase="1"]{display:none!important}
         <figcaption><i>Grapes over the lanes</i></figcaption>
       </figure>
       <figure class="plate-d reveal">
-        <div class="photo hover-zoom"><img src="/images/old-town-golden-hour.jpg" width="768" height="1024" alt="Polignano a Mare's old town on its limestone cliff above the Adriatic at golden hour" loading="lazy"></div>
-        <figcaption><i>The old town at golden hour</i></figcaption>
+        <div class="photo hover-zoom"><img src="/images/old-town-swimmers.jpg" width="900" height="1350" alt="Swimmers in turquoise water below the old town on its limestone cliff" loading="lazy" style="object-position:50% 70%"></div>
+        <figcaption><i>Swimming below the old town</i></figcaption>
       </figure>
     </div>
   </div>
